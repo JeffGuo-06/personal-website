@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import ReactConfetti from 'react-confetti';
-import { Button, Center, Container, Flex, Group, Overlay, Space, Stack, Text } from '@mantine/core';
+import { Button, Center, Flex, Group, Image, Overlay, Space, Stack, Text } from '@mantine/core';
 
 export function Valentines() {
   const [page, setPage] = useState(1);
@@ -8,12 +8,16 @@ export function Valentines() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   // Set the target date (e.g., February 14, 2024, at 12:00 PM)
-  const targetDate = new Date('2025-02-15T12:00:00').getTime();
+  const targetDate = new Date('2025-02-16T07:00:00');
+  console.log(targetDate);
+  useEffect(() => {
+    document.title = 'VALENTINES'; // Set the title
+  }, []); // Runs once on mount
 
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date().getTime();
-      const difference = targetDate - now;
+      const difference = targetDate.getTime() - now;
 
       if (difference > 0) {
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -50,29 +54,30 @@ export function Valentines() {
   const renderImage = () => {
     switch (page) {
       case -2:
-        return <img src="/images/valentines-sad.png" alt="Sad" />;
+
       case -1:
-        return <img src="/images/valentines-sad.png" alt="Sad" />;
+        return <Image h={400} w={500} fit="contain" src="/assets/valentines--1.png" alt="10" />;
+
       case 1:
-        return <img src="/images/valentines-1.png" alt="1" />;
+        return <Image h={400} w={500} fit="contain" src="/assets/valentines-1.png" alt="1" />;
       case 2:
-        return <img src="/images/valentines-2.png" alt="2" />;
+        return <Image h={400} w={500} fit="contain" src="/assets/valentines-2.png" alt="2" />;
       case 3:
-        return <img src="/images/valentines-3.png" alt="3" />;
+        return <Image h={400} w={500} fit="contain" src="/assets/valentines-3.png" alt="3" />;
       case 4:
-        return <img src="/images/valentines-4.png" alt="4" />;
+        return <Image h={400} w={500} fit="contain" src="/assets/valentines-4.png" alt="4" />;
       case 5:
-        return <img src="/images/valentines-5.png" alt="5" />;
+        return <Image h={400} w={500} fit="contain" src="/assets/valentines-5.png" alt="5" />;
       case 6:
-        return <img src="/images/valentines-6.png" alt="6" />;
+        return <Image h={400} w={500} fit="contain" src="/assets/valentines-6.png" alt="6" />;
       case 7:
-        return <img src="/images/valentines-7.png" alt="7" />;
+        return <Image h={400} w={500} fit="contain" src="/assets/valentines-7.png" alt="7" />;
       case 8:
-        return <img src="/images/valentines-8.png" alt="8" />;
+        return <Image h={400} w={500} fit="contain" src="/assets/valentines-8.png" alt="8" />;
       case 9:
-        return <img src="/images/valentines-9.png" alt="9" />;
+        return <Image h={400} w={500} fit="contain" src="/assets/valentines-9.png" alt="9" />;
       case 10:
-        return <img src="/images/valentines-10.png" alt="10" />;
+        return <Image h={400} w={500} fit="contain" src="/assets/valentines-10.png" alt="10" />;
       default:
     }
   };
@@ -308,22 +313,14 @@ export function Valentines() {
     <>
       <Center
         bg="#FFDEE3" // Light pink background
+        w="100vw"
+        h="100vh"
       >
-        <Flex
-          justify="left"
-          align="center"
-          w="50vw"
-          h="100vh"
-          p="xl" // Padding for spacing
-          style={{
-            backgroundImage: `url('/images/valentines-background.png')`, // Path to your image
-            backgroundSize: 'cover', // Ensure the image covers the entire container
-            backgroundPosition: 'center', // Center the image
-            backgroundRepeat: 'no-repeat', // Prevent repeating the image
-          }}
-        >
-          <Stack>
-            {renderImage()}
+        <Flex justify="center" align="center" w="100%" h="100%">
+          <Stack align="center" gap="sm" style={{ maxWidth: '90%', width: '500px' }}>
+            <Flex justify="center" align="center" w="100%">
+              {renderImage()}
+            </Flex>
             {showConfetti && (
               <ReactConfetti
                 numberOfPieces={500}

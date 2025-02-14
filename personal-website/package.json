@@ -26,13 +26,13 @@
     "@react-three/fiber": "^8.17.14",
     "@tabler/icons": "^3.28.1",
     "@tabler/icons-react": "^3.28.1",
+    "@types/three": "^0.150.0",
     "react": "^18.3.1",
     "react-confetti": "^6.2.2",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.1",
     "sass": "^1.83.4",
-    "three": "^0.173.0",
-    "@types/three": "^0.150.0"
+    "three": "^0.173.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
@@ -43,6 +43,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^22.13.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",

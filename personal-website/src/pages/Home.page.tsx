@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Button, Container, Stack } from '@mantine/core';
 import { Header } from '@/components/Header/Header';
 import { Intro } from '@/components/Intro/Intro';
