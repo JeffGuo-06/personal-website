@@ -10,8 +10,11 @@ export function Education() {
       </Title>
       <Space h="xl"></Space>
       <Group grow>
-        <Text>awdqdwqdqwd</Text>
-        <Image src="src/assets/waterloo.png" w="300px"></Image>
+        <Text>
+          I'm an Honours Mathematics student at University of Waterloo, and have a strong interest
+          towards Computer Science and Data Science{' '}
+        </Text>
+        <Image src="./assets/waterloo.png" w="300px"></Image>
       </Group>
     </div>
   );

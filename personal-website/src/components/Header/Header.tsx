@@ -18,14 +18,14 @@ export function Header() {
         zIndex: 1,
         transform: `translate3d(0, ${pinned ? 0 : '-110px'}, 0)`,
         transition: 'transform 400ms ease',
-        backgroundColor: 'gray',
+        backgroundColor: 'var(--mantine-color-dark-7)',
         borderBottom: 'solid',
         borderBottomWidth: '1px',
         borderColor: 'gray',
       }}
     >
       <Flex mih={50} gap="xs" justify="flex-end" align="center" direction="row" wrap="nowrap">
-        <Button variant="transparent" color="light-dark">
+        <Button variant="transparent" color="light-dark" href="./" component="a">
           Home
         </Button>
         <Button variant="transparent" color="light-dark">

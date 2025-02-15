@@ -5,50 +5,48 @@ import classes from '../styles/Title.module.css';
 export function Projects() {
   const projects = [
     {
-      id: 1,
       title: 'I Understand It Now TikTok Filter',
 
       //gif: './src/assets/tiktokfilter.gif',
 
-      image: './src/assets/tiktokfilter.png',
-      desc: 'TikTok Effect inspired by the I Understand It Now trend.',
+      image: './assets/tiktokfilter.png',
+      desc: 'TikTok Effect inspired by the I Understand It Now trend. Do you understand it?',
       link: 'https://github.com/JeffGuo-06/tiktok-filter-i-understand-it-now',
     },
     {
-      id: 2,
       title: 'Axe Guy',
-      image: './src/assets/tiktokfilter.png',
+      image: './assets/axe-guy.png',
       //gif: './src/assets/test-gif.gif',
-      desc: 'temp',
+      desc: 'Dungeon Crawler game, featuring a guy, and this guy, he has an axe.',
       link: 'https://github.com/JeffGuo-06/axe-guy',
     },
     {
-      title: 'I Understand It Now TikTok Filter',
-      image: './src/assets/tiktokfilter.png',
-      gif: './src/assets/test-gif.gif',
-      desc: 'temp',
+      title: 'Blocked In',
+      image: './assets/blocked-in.png',
+      //gif: './assets/test-gif.gif',
+      desc: 'Visual habit tracker, habits add blocks to your tower, track your habits with your friends, blocking in is always more fun with friends.',
+      link: 'https://github.com/tony1234567891011/geesehacks2025',
+    },
+    {
+      title: 'Valentines Day Quiz',
+      image: './assets/valentines-project.png',
+      //gif: './assets/test-gif.gif',
+      desc: 'A quiz to determine if you are the right valentine for me, except only my girlfriend knows the answers.',
+      link: 'https://guojeff.com/valentines',
+    },
+    {
+      title: 'Fruits vs Ants Simulation',
+      image: './assets/fruits-vs-ants.png',
+      //gif: './assets/test-gif.gif',
+      desc: 'When the fruits roll up, the ants roll up, their sleeves, I guess.',
       link: 'https://github.com/JeffGuo-06/tiktok-filter-i-understand-it-now',
     },
     {
-      title: 'I Understand It Now TikTok Filter',
-      image: './src/assets/tiktokfilter.png',
-      gif: './src/assets/test-gif.gif',
-      desc: 'temp',
-      link: 'https://github.com/JeffGuo-06/tiktok-filter-i-understand-it-now',
-    },
-    {
-      title: 'I Understand It Now TikTok Filter',
-      image: './src/assets/tiktokfilter.png',
-      gif: './src/assets/test-gif.gif',
-      desc: 'temp',
-      link: 'https://github.com/JeffGuo-06/tiktok-filter-i-understand-it-now',
-    },
-    {
-      title: 'I Understand It Now TikTok Filter',
-      image: './src/assets/tiktokfilter.png',
-      gif: './src/assets/test-gif.gif',
-      desc: 'temp',
-      link: 'https://github.com/JeffGuo-06/tiktok-filter-i-understand-it-now',
+      title: 'MORE PROJECTS TO COME',
+      image: './assets/wrench-guy.png',
+      //gif: './assets/test-gif.gif',
+      desc: 'Currently working on more fun stuff, stay tuned!',
+      link: './working-on-it',
     },
   ];
 
@@ -65,7 +63,7 @@ export function Projects() {
               <Project
                 title={proj.title}
                 image={proj.image}
-                gif={proj.gif}
+                //mgif={proj.gif}
                 desc={proj.desc}
                 link={proj.link}
               ></Project>
