@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal } from './Modal';
 import { Button } from './Button';
 import { Text } from './Text';
@@ -16,9 +16,36 @@ export function WaitlistModal({ opened, onClose }: WaitlistModalProps) {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  
-  // Placeholder count - you can replace this with actual data from Mailchimp
-  const waitlistCount = 1247;
+  const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
+  const [isLoadingCount, setIsLoadingCount] = useState(false);
+
+  // Fetch waitlist count when modal opens
+  useEffect(() => {
+    if (opened && waitlistCount === null) {
+      fetchWaitlistCount();
+    }
+  }, [opened]);
+
+  const fetchWaitlistCount = async () => {
+    setIsLoadingCount(true);
+    try {
+      const response = await fetch('/api/mailchimp-count');
+      const data = await response.json();
+      
+      if (response.ok && data.success) {
+        setWaitlistCount(data.count);
+      } else {
+        // Fallback count if API fails
+        setWaitlistCount(1200);
+      }
+    } catch (error) {
+      console.error('Failed to fetch waitlist count:', error);
+      // Fallback count if API fails
+      setWaitlistCount(1200);
+    } finally {
+      setIsLoadingCount(false);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,6 +64,10 @@ export function WaitlistModal({ opened, onClose }: WaitlistModalProps) {
 
       if (response.ok && data.success) {
         setIsSubmitted(true);
+        // Increment the count locally for immediate feedback
+        if (waitlistCount !== null) {
+          setWaitlistCount(waitlistCount + 1);
+        }
       } else {
         // Handle error - you could add error state here if needed
         alert(data.error || 'Something went wrong. Please try again.');
@@ -56,6 +87,8 @@ export function WaitlistModal({ opened, onClose }: WaitlistModalProps) {
     onClose();
   };
 
+  const displayCount = isLoadingCount ? '...' : (waitlistCount?.toLocaleString() || '...');
+
   if (isSubmitted) {
     return (
       <Modal opened={opened} onClose={handleClose} centered>
@@ -68,7 +101,7 @@ export function WaitlistModal({ opened, onClose }: WaitlistModalProps) {
               Thanks for joining the waitlist! We'll notify you as soon as SHOUT is ready.
             </Text>
             <Text className={classes.count}>
-              You're #{waitlistCount + 1} in line
+              You're #{waitlistCount !== null ? (waitlistCount).toLocaleString() : '...'} in line
             </Text>
             <Button className={classes.closeButton} onClick={handleClose}>
               Close
@@ -90,7 +123,7 @@ export function WaitlistModal({ opened, onClose }: WaitlistModalProps) {
             Be the first to know when SHOUT launches
           </Text>
           <Text className={classes.count}>
-            {waitlistCount} people already waitlisted
+            {displayCount} people already waitlisted
           </Text>
           
           <form onSubmit={handleSubmit} className={classes.form}>
