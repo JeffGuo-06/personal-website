@@ -19,10 +19,7 @@ export function Intro() {
       <Flex gap="md" justify="flex-end" align="flex-start" direction="column" wrap="wrap">
         <Title className={`${classes.title} ${classes.animateTitle}`}>Hi, I'm Jeff!</Title>
         <Text className={classes.animateDescription}>
-          A passionate Developer, having experience in building applications 
-          using Java, Python, Unity, C# and other frameworks.
-
-          React, React Native, SQL, CSS, Tailwind, 
+          I'm a full stack developer, right now, I'm focusing on developing mobile apps.
         </Text>
         <Space h="xl" />
         <Group>

@@ -15,12 +15,14 @@ import { Button } from '../components/ui/Button';
 import { Text } from '../components/ui/Text';
 import { Title } from '../components/ui/Title';
 import { Card } from '../components/ui/Card';
+import { WaitlistModal } from '../components/ui/WaitlistModal';
 import classes from './Shout.module.css';
 
 export function ShoutPage() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [modalOpened, setModalOpened] = useState(false);
   const featuresRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -44,20 +46,7 @@ export function ShoutPage() {
   }, []);
 
   const handleShout = () => {
-    setIsProcessing(true);
-    setProgress(0);
-    
-    // Simulate processing
-    const interval = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setIsProcessing(false);
-          return 100;
-        }
-        return prev + 10;
-      });
-    }, 200);
+    setModalOpened(true);
   };
 
   return (
@@ -85,23 +74,9 @@ export function ShoutPage() {
                 disabled={isProcessing}
                 size="xl"
               >
-                {isProcessing ? 'Processing...' : 'AHHHHHHH'}
+                Join Waitlist
               </Button>
               
-              {/* Processing Progress */}
-              {isProcessing && (
-                <Box className={classes.progressContainer}>
-                  <div className={classes.progressBar}>
-                    <div 
-                      className={classes.progressFill} 
-                      style={{ width: `${progress}%` }}
-                    />
-                  </div>
-                  <Text className={classes.progressText}>
-                    Creating your video... {progress}%
-                  </Text>
-                </Box>
-              )}
             </Stack>
           </Center>
         </Container>
@@ -237,6 +212,11 @@ export function ShoutPage() {
           </Center>
         </Container>
       </section>
+      
+      <WaitlistModal 
+        opened={modalOpened} 
+        onClose={() => setModalOpened(false)} 
+      />
     </div>
   );
 }
