@@ -1,7 +1,11 @@
-import { Box, Button, Flex } from '@mantine/core';
-import { useHeadroom } from '@mantine/hooks';
+import React from 'react';
 
 import './Header.css';
+
+import { useHeadroom } from '../../hooks';
+import { Box } from '../layout/Box';
+import { Flex } from '../layout/Flex';
+import { Button } from '../ui/Button';
 
 export function Header() {
   const pinned = useHeadroom({ fixedAt: 120 });
@@ -13,27 +17,32 @@ export function Header() {
         top: 0,
         left: 0,
         right: 0,
-        padding: 'var(--mantine-spacing-xs)',
+        padding: 'var(--theme-spacing-xs)',
         height: 60,
         zIndex: 1,
         transform: `translate3d(0, ${pinned ? 0 : '-110px'}, 0)`,
         transition: 'transform 400ms ease',
-        backgroundColor: 'var(--mantine-color-dark-7)',
+        backgroundColor: 'var(--theme-bg-secondary)',
         borderBottom: 'solid',
         borderBottomWidth: '1px',
-        borderColor: 'gray',
+        borderColor: 'var(--theme-border)',
       }}
     >
-      <Flex mih={50} gap="xs" justify="flex-end" align="center" direction="row" wrap="nowrap">
-        <Button variant="transparent" color="light-dark" href="./" component="a">
+      <Flex
+        style={{
+          minHeight: '50px',
+          gap: 'var(--theme-spacing-xs)',
+          justifyContent: 'flex-end',
+          alignItems: 'center',
+          flexDirection: 'row',
+          flexWrap: 'nowrap',
+        }}
+      >
+        <Button href="./" variant="transparent">
           Home
         </Button>
-        <Button variant="transparent" color="light-dark">
-          About Me
-        </Button>
-        <Button variant="transparent" color="light-dark">
-          Projects
-        </Button>
+        <Button variant="transparent">About Me</Button>
+        <Button variant="transparent">Projects</Button>
       </Flex>
     </Box>
   );

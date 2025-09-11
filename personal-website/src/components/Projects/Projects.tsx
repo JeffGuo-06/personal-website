@@ -1,5 +1,10 @@
-import { Box, Container, Flex, Space, Title } from '@mantine/core';
+import React from 'react';
+import { Box } from '../layout/Box';
+import { Container } from '../layout/Container';
+import { Flex } from '../layout/Flex';
+import { Space } from '../layout/Space';
 import { Project } from '../Project/Project';
+import { Title } from '../ui/Title';
 import classes from '../styles/Title.module.css';
 
 export function Projects() {
@@ -28,13 +33,6 @@ export function Projects() {
       link: 'https://github.com/tony1234567891011/geesehacks2025',
     },
     {
-      title: 'Valentines Day Quiz',
-      image: './assets/valentines-project.png',
-      //gif: './assets/test-gif.gif',
-      desc: 'A quiz to determine if you are the right valentine for me, except only my girlfriend knows the answers.',
-      link: 'https://guojeff.com/valentines',
-    },
-    {
       title: 'Fruits vs Ants Simulation',
       image: './assets/fruits-vs-ants.png',
       //gif: './assets/test-gif.gif',
@@ -52,21 +50,20 @@ export function Projects() {
 
   return (
     <>
-      <Box my={100} mt={100}>
-        <Title order={1} className={classes.title}>
-          Projects
-        </Title>
-        <Space h="xl"></Space>
-        <Container fluid>
+      <Box style={{ margin: '100px 0', marginTop: '100px' }}>
+        <Title className={classes.title}>Projects</Title>
+        <Space h="xl" />
+        <Container>
           <Flex justify="space-around" align="center" direction="row" wrap="wrap" gap="lg">
-            {projects.map((proj) => (
+            {projects.map((proj, index) => (
               <Project
+                key={index}
                 title={proj.title}
                 image={proj.image}
                 //mgif={proj.gif}
                 desc={proj.desc}
                 link={proj.link}
-              ></Project>
+              />
             ))}
           </Flex>
         </Container>

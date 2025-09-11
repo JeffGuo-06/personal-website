@@ -1,0 +1,209 @@
+/* Base card styles */
+.card {
+  background-color: var(--theme-bg-secondary);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Padding variants */
+.padding-xs {
+  padding: var(--theme-spacing-xs);
+}
+
+.padding-sm {
+  padding: var(--theme-spacing-sm);
+}
+
+.padding-md {
+  padding: var(--theme-spacing-md);
+}
+
+.padding-lg {
+  padding: var(--theme-spacing-lg);
+}
+
+.padding-xl {
+  padding: var(--theme-spacing-xl);
+}
+
+/* Radius variants */
+.radius-xs {
+  border-radius: var(--theme-radius-xs);
+}
+
+.radius-sm {
+  border-radius: var(--theme-radius-sm);
+}
+
+.radius-md {
+  border-radius: var(--theme-radius-md);
+}
+
+.radius-lg {
+  border-radius: var(--theme-radius-lg);
+}
+
+.radius-xl {
+  border-radius: var(--theme-radius-xl);
+}
+
+/* Shadow variants */
+.shadow-xs {
+  box-shadow: var(--theme-shadow-xs);
+}
+
+.shadow-sm {
+  box-shadow: var(--theme-shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--theme-shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--theme-shadow-lg);
+}
+
+.shadow-xl {
+  box-shadow: var(--theme-shadow-xl);
+}
+
+/* Border variant */
+.withBorder {
+  border: 1px solid var(--theme-border);
+}
+
+/* Card Section */
+.section {
+  position: relative;
+}
+
+.section:not(:first-child) {
+  border-top: 1px solid var(--theme-border-light);
+}
+
+.section:first-child {
+  margin-top: calc(var(--theme-spacing-md) * -1);
+  margin-left: calc(var(--theme-spacing-md) * -1);
+  margin-right: calc(var(--theme-spacing-md) * -1);
+}
+
+.section:last-child {
+  margin-bottom: calc(var(--theme-spacing-md) * -1);
+  margin-left: calc(var(--theme-spacing-md) * -1);
+  margin-right: calc(var(--theme-spacing-md) * -1);
+}
+
+.section:first-child:last-child {
+  margin: calc(var(--theme-spacing-md) * -1);
+}
+
+.sectionWithBorder {
+  border-top: 1px solid var(--theme-border);
+}
+
+.inheritPadding {
+  padding: var(--theme-spacing-md);
+}
+
+/* Section-specific padding overrides */
+.section.padding-xs {
+  padding: var(--theme-spacing-xs);
+}
+
+.section.padding-sm {
+  padding: var(--theme-spacing-sm);
+}
+
+.section.padding-md {
+  padding: var(--theme-spacing-md);
+}
+
+.section.padding-lg {
+  padding: var(--theme-spacing-lg);
+}
+
+.section.padding-xl {
+  padding: var(--theme-spacing-xl);
+}
+
+/* Adjust margins based on parent card padding */
+.card.padding-xs .section:first-child {
+  margin-top: calc(var(--theme-spacing-xs) * -1);
+  margin-left: calc(var(--theme-spacing-xs) * -1);
+  margin-right: calc(var(--theme-spacing-xs) * -1);
+}
+
+.card.padding-xs .section:last-child {
+  margin-bottom: calc(var(--theme-spacing-xs) * -1);
+  margin-left: calc(var(--theme-spacing-xs) * -1);
+  margin-right: calc(var(--theme-spacing-xs) * -1);
+}
+
+.card.padding-xs .section:first-child:last-child {
+  margin: calc(var(--theme-spacing-xs) * -1);
+}
+
+.card.padding-sm .section:first-child {
+  margin-top: calc(var(--theme-spacing-sm) * -1);
+  margin-left: calc(var(--theme-spacing-sm) * -1);
+  margin-right: calc(var(--theme-spacing-sm) * -1);
+}
+
+.card.padding-sm .section:last-child {
+  margin-bottom: calc(var(--theme-spacing-sm) * -1);
+  margin-left: calc(var(--theme-spacing-sm) * -1);
+  margin-right: calc(var(--theme-spacing-sm) * -1);
+}
+
+.card.padding-sm .section:first-child:last-child {
+  margin: calc(var(--theme-spacing-sm) * -1);
+}
+
+.card.padding-lg .section:first-child {
+  margin-top: calc(var(--theme-spacing-lg) * -1);
+  margin-left: calc(var(--theme-spacing-lg) * -1);
+  margin-right: calc(var(--theme-spacing-lg) * -1);
+}
+
+.card.padding-lg .section:last-child {
+  margin-bottom: calc(var(--theme-spacing-lg) * -1);
+  margin-left: calc(var(--theme-spacing-lg) * -1);
+  margin-right: calc(var(--theme-spacing-lg) * -1);
+}
+
+.card.padding-lg .section:first-child:last-child {
+  margin: calc(var(--theme-spacing-lg) * -1);
+}
+
+.card.padding-xl .section:first-child {
+  margin-top: calc(var(--theme-spacing-xl) * -1);
+  margin-left: calc(var(--theme-spacing-xl) * -1);
+  margin-right: calc(var(--theme-spacing-xl) * -1);
+}
+
+.card.padding-xl .section:last-child {
+  margin-bottom: calc(var(--theme-spacing-xl) * -1);
+  margin-left: calc(var(--theme-spacing-xl) * -1);
+  margin-right: calc(var(--theme-spacing-xl) * -1);
+}
+
+.card.padding-xl .section:first-child:last-child {
+  margin: calc(var(--theme-spacing-xl) * -1);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .card {
+  background-color: var(--theme-bg-secondary);
+}
+
+[data-theme="dark"] .section:not(:first-child),
+[data-theme="dark"] .sectionWithBorder {
+  border-color: var(--theme-border-dark);
+}
+
+[data-theme="dark"] .withBorder {
+  border-color: var(--theme-border);
+}

@@ -1,22 +1,42 @@
-import { Anchor, Text, Title } from '@mantine/core';
+import React from 'react';
+import { Anchor } from '../ui/Anchor';
+import { Text } from '../ui/Text';
+import { Title } from '../ui/Title';
 import classes from './Welcome.module.css';
 
 export function Welcome() {
   return (
     <>
-      <Title className={classes.title} ta="center" mt={100}>
+      <Title className={classes.title} style={{ textAlign: 'center', marginTop: '100px' }}>
         Welcome to{' '}
-        <Text inherit variant="gradient" component="span" gradient={{ from: 'pink', to: 'yellow' }}>
-          Mantine
+        <Text
+          component="span"
+          style={{
+            background: 'linear-gradient(45deg, #f06595, #fab005)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}
+        >
+          Custom Theme
         </Text>
       </Title>
-      <Text c="dimmed" ta="center" size="lg" maw={580} mx="auto" mt="xl">
-        This starter Vite project includes a minimal setup, if you want to learn more on Mantine +
-        Vite integration follow{' '}
-        <Anchor href="https://mantine.dev/guides/vite/" size="lg">
-          this guide
-        </Anchor>
-        . To get started edit pages/Home.page.tsx file.
+      <Text
+        style={{
+          color: 'var(--theme-text-secondary)',
+          textAlign: 'center',
+          fontSize: 'var(--theme-font-size-lg)',
+          maxWidth: '580px',
+          margin: '0 auto',
+          marginTop: 'var(--theme-spacing-xl)',
+          display: 'block',
+        }}
+      >
+        This project now uses a custom theme system with CSS custom properties for colors, spacing,
+        and breakpoints. The theme supports light/dark mode switching and uses{' '}
+        <Anchor href="https://fonts.google.com/specimen/Verdana">Verdana for body text</Anchor> and{' '}
+        <Anchor href="https://fonts.google.com/specimen/Poppins">Poppins for headings</Anchor>. To
+        get started, explore the src/theme directory.
       </Text>
     </>
   );

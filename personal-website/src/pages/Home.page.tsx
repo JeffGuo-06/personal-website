@@ -1,11 +1,10 @@
-import { useEffect } from 'react';
-import { Button, Container, Stack } from '@mantine/core';
+import React from 'react';
 import { Header } from '@/components/Header/Header';
 import { Intro } from '@/components/Intro/Intro';
-import { ColorSchemeToggle } from '../components/ColorSchemeToggle/ColorSchemeToggle';
 import { Education } from '../components/Education/Education';
+import { Container } from '../components/layout/Container';
+import { Stack } from '../components/layout/Stack';
 import { Projects } from '../components/Projects/Projects';
-import { Welcome } from '../components/Welcome/Welcome';
 
 export function HomePage() {
   return (
@@ -14,8 +13,8 @@ export function HomePage() {
       <Container size="md">
         <Stack align="stretch" justify="flex-start" gap="xl">
           <Intro />
-          <Projects />
-          <Education />
+          {/* <Projects /> */}
+          {/* <Education /> */}
         </Stack>
       </Container>
     </>

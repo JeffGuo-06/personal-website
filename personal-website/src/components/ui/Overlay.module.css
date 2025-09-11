@@ -1,0 +1,182 @@
+/* Base overlay styles */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+/* Fixed positioning */
+.fixed {
+  position: fixed;
+  pointer-events: auto;
+}
+
+/* Center content */
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+/* Blur effect */
+.blur {
+  backdrop-filter: blur(var(--overlay-blur, 0px));
+  -webkit-backdrop-filter: blur(var(--overlay-blur, 0px));
+}
+
+/* Radius variants */
+.radius-xs {
+  border-radius: var(--theme-radius-xs);
+}
+
+.radius-sm {
+  border-radius: var(--theme-radius-sm);
+}
+
+.radius-md {
+  border-radius: var(--theme-radius-md);
+}
+
+.radius-lg {
+  border-radius: var(--theme-radius-lg);
+}
+
+.radius-xl {
+  border-radius: var(--theme-radius-xl);
+}
+
+/* Common overlay patterns */
+.overlay.dark {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.overlay.light {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.overlay.blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.overlay.blur-md {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.overlay.blur-lg {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.overlay.blur-xl {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* Interactive overlays */
+.overlay.clickable {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Modal/Dialog overlays */
+.overlay.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Overlay animations */
+.overlay.fade-in {
+  animation: fadeIn 200ms ease-out;
+}
+
+.overlay.fade-out {
+  animation: fadeOut 200ms ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Loading overlay */
+.overlay.loading {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.overlay.loading::before {
+  content: '';
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--theme-primary-1);
+  border-top-color: var(--theme-primary-6);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .overlay.loading {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] .overlay.loading::before {
+  border-color: var(--theme-primary-9);
+  border-top-color: var(--theme-primary-4);
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .overlay.modal {
+    padding: var(--theme-spacing-md);
+  }
+}
+
+/* Accessibility */
+.overlay:focus-visible {
+  outline: 2px solid var(--theme-primary-5);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .overlay {
+    display: none;
+  }
+}

@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--theme-spacing-md, 16px);
+  padding-right: var(--theme-spacing-md, 16px);
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: var(--theme-spacing-sm, 12px);
+    padding-right: var(--theme-spacing-sm, 12px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding-left: var(--theme-spacing-lg, 24px);
+    padding-right: var(--theme-spacing-lg, 24px);
+  }
+}

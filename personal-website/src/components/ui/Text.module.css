@@ -1,0 +1,192 @@
+/* Base text styles */
+.text {
+  color: var(--theme-text);
+  font-family: var(--theme-font-family-body);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Size variants */
+.xs {
+  font-size: var(--theme-font-size-xs);
+}
+
+.sm {
+  font-size: var(--theme-font-size-sm);
+}
+
+.md {
+  font-size: var(--theme-font-size-md);
+}
+
+.lg {
+  font-size: var(--theme-font-size-lg);
+}
+
+.xl {
+  font-size: var(--theme-font-size-xl);
+}
+
+/* Weight variants */
+.weight-100 {
+  font-weight: 100;
+}
+
+.weight-200 {
+  font-weight: 200;
+}
+
+.weight-300 {
+  font-weight: 300;
+}
+
+.weight-400,
+.weight-normal {
+  font-weight: 400;
+}
+
+.weight-500 {
+  font-weight: 500;
+}
+
+.weight-600 {
+  font-weight: 600;
+}
+
+.weight-700,
+.weight-bold {
+  font-weight: 700;
+}
+
+.weight-800 {
+  font-weight: 800;
+}
+
+.weight-900 {
+  font-weight: 900;
+}
+
+/* Alignment variants */
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-justify {
+  text-align: justify;
+}
+
+/* Transform variants */
+.transform-none {
+  text-transform: none;
+}
+
+.transform-capitalize {
+  text-transform: capitalize;
+}
+
+.transform-uppercase {
+  text-transform: uppercase;
+}
+
+.transform-lowercase {
+  text-transform: lowercase;
+}
+
+/* Decoration variants */
+.decoration-none {
+  text-decoration: none;
+}
+
+.decoration-underline {
+  text-decoration: underline;
+}
+
+.decoration-line-through {
+  text-decoration: line-through;
+}
+
+/* Color variants */
+.color-primary {
+  color: var(--theme-primary-6);
+}
+
+.color-secondary {
+  color: var(--theme-secondary-6);
+}
+
+.color-gray {
+  color: var(--theme-gray-6);
+}
+
+.color-red {
+  color: var(--theme-error);
+}
+
+.color-green {
+  color: var(--theme-success);
+}
+
+.color-blue {
+  color: var(--theme-info);
+}
+
+.color-yellow {
+  color: var(--theme-warning);
+}
+
+.color-dimmed {
+  color: var(--theme-text-secondary);
+}
+
+.color-bright {
+  color: var(--theme-text-bright);
+}
+
+/* Special behaviors */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lineClamp {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp, 3);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.inherit {
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .color-primary {
+  color: var(--theme-primary-4);
+}
+
+[data-theme="dark"] .color-secondary {
+  color: var(--theme-secondary-4);
+}
+
+[data-theme="dark"] .color-gray {
+  color: var(--theme-gray-4);
+}

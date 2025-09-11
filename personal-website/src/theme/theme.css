@@ -1,0 +1,211 @@
+/* CSS Custom Properties for Theme System */
+:root {
+  /* Color Scheme Variables */
+  --theme-primary-0: #e7f5ff;
+  --theme-primary-1: #d0ebff;
+  --theme-primary-2: #a5d8ff;
+  --theme-primary-3: #74c0fc;
+  --theme-primary-4: #339af0;
+  --theme-primary-5: #228be6;
+  --theme-primary-6: #1c7ed6;
+  --theme-primary-7: #1971c2;
+  --theme-primary-8: #1864ab;
+  --theme-primary-9: #145592;
+
+  --theme-secondary-0: #fff0f6;
+  --theme-secondary-1: #ffdeeb;
+  --theme-secondary-2: #fcc2d7;
+  --theme-secondary-3: #faa2c1;
+  --theme-secondary-4: #f783ac;
+  --theme-secondary-5: #f06595;
+  --theme-secondary-6: #e64980;
+  --theme-secondary-7: #d6336c;
+  --theme-secondary-8: #c2255c;
+  --theme-secondary-9: #a61e4d;
+
+  --theme-gray-0: #f8f9fa;
+  --theme-gray-1: #f1f3f4;
+  --theme-gray-2: #e9ecef;
+  --theme-gray-3: #dee2e6;
+  --theme-gray-4: #ced4da;
+  --theme-gray-5: #adb5bd;
+  --theme-gray-6: #6c757d;
+  --theme-gray-7: #495057;
+  --theme-gray-8: #343a40;
+  --theme-gray-9: #212529;
+
+  --theme-white: #ffffff;
+  --theme-black: #000000;
+
+  /* Spacing */
+  --theme-spacing-xs: 0.25rem; /* 4px */
+  --theme-spacing-sm: 0.5rem;  /* 8px */
+  --theme-spacing-md: 1rem;    /* 16px */
+  --theme-spacing-lg: 1.5rem;  /* 24px */
+  --theme-spacing-xl: 2rem;    /* 32px */
+
+  /* Font Sizes */
+  --theme-font-size-xs: 0.75rem;  /* 12px */
+  --theme-font-size-sm: 0.875rem; /* 14px */
+  --theme-font-size-md: 1rem;     /* 16px */
+  --theme-font-size-lg: 1.125rem; /* 18px */
+  --theme-font-size-xl: 1.25rem;  /* 20px */
+
+  /* Font Families */
+  --theme-font-family-body: 'Verdana', sans-serif;
+  --theme-font-family-heading: 'Poppins', sans-serif;
+
+  /* Breakpoints (for use in JavaScript) */
+  --theme-breakpoint-xs: 576px;
+  --theme-breakpoint-sm: 768px;
+  --theme-breakpoint-md: 992px;
+  --theme-breakpoint-lg: 1200px;
+  --theme-breakpoint-xl: 1400px;
+}
+
+/* Light Mode Variables */
+[data-theme="light"] {
+  --theme-bg: var(--theme-white);
+  --theme-bg-secondary: var(--theme-gray-0);
+  --theme-bg-tertiary: var(--theme-gray-1);
+  --theme-text: var(--theme-gray-9);
+  --theme-text-secondary: var(--theme-gray-7);
+  --theme-text-tertiary: var(--theme-gray-6);
+  --theme-border: var(--theme-gray-3);
+  --theme-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode Variables (default) */
+[data-theme="dark"] {
+  --theme-bg: var(--theme-gray-9);
+  --theme-bg-secondary: var(--theme-gray-8);
+  --theme-bg-tertiary: var(--theme-gray-7);
+  --theme-text: var(--theme-gray-0);
+  --theme-text-secondary: var(--theme-gray-2);
+  --theme-text-tertiary: var(--theme-gray-4);
+  --theme-border: var(--theme-gray-6);
+  --theme-shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--theme-font-family-body);
+  font-size: var(--theme-font-size-md);
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--theme-font-family-heading);
+  font-weight: 900;
+  margin: 0;
+  color: var(--theme-text);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1.125rem; }
+
+/* Utility Classes */
+.theme-text-primary { color: var(--theme-text); }
+.theme-text-secondary { color: var(--theme-text-secondary); }
+.theme-text-tertiary { color: var(--theme-text-tertiary); }
+
+.theme-bg-primary { background-color: var(--theme-bg); }
+.theme-bg-secondary { background-color: var(--theme-bg-secondary); }
+.theme-bg-tertiary { background-color: var(--theme-bg-tertiary); }
+
+.theme-border { border: 1px solid var(--theme-border); }
+
+/* Spacing Utilities */
+.theme-m-xs { margin: var(--theme-spacing-xs); }
+.theme-m-sm { margin: var(--theme-spacing-sm); }
+.theme-m-md { margin: var(--theme-spacing-md); }
+.theme-m-lg { margin: var(--theme-spacing-lg); }
+.theme-m-xl { margin: var(--theme-spacing-xl); }
+
+.theme-p-xs { padding: var(--theme-spacing-xs); }
+.theme-p-sm { padding: var(--theme-spacing-sm); }
+.theme-p-md { padding: var(--theme-spacing-md); }
+.theme-p-lg { padding: var(--theme-spacing-lg); }
+.theme-p-xl { padding: var(--theme-spacing-xl); }
+
+.theme-mt-xs { margin-top: var(--theme-spacing-xs); }
+.theme-mt-sm { margin-top: var(--theme-spacing-sm); }
+.theme-mt-md { margin-top: var(--theme-spacing-md); }
+.theme-mt-lg { margin-top: var(--theme-spacing-lg); }
+.theme-mt-xl { margin-top: var(--theme-spacing-xl); }
+
+.theme-mb-xs { margin-bottom: var(--theme-spacing-xs); }
+.theme-mb-sm { margin-bottom: var(--theme-spacing-sm); }
+.theme-mb-md { margin-bottom: var(--theme-spacing-md); }
+.theme-mb-lg { margin-bottom: var(--theme-spacing-lg); }
+.theme-mb-xl { margin-bottom: var(--theme-spacing-xl); }
+
+.theme-ml-xs { margin-left: var(--theme-spacing-xs); }
+.theme-ml-sm { margin-left: var(--theme-spacing-sm); }
+.theme-ml-md { margin-left: var(--theme-spacing-md); }
+.theme-ml-lg { margin-left: var(--theme-spacing-lg); }
+.theme-ml-xl { margin-left: var(--theme-spacing-xl); }
+
+.theme-mr-xs { margin-right: var(--theme-spacing-xs); }
+.theme-mr-sm { margin-right: var(--theme-spacing-sm); }
+.theme-mr-md { margin-right: var(--theme-spacing-md); }
+.theme-mr-lg { margin-right: var(--theme-spacing-lg); }
+.theme-mr-xl { margin-right: var(--theme-spacing-xl); }
+
+/* Responsive Breakpoints */
+@media (max-width: 575px) {
+  .theme-hide-xs { display: none; }
+}
+
+@media (min-width: 576px) {
+  .theme-show-xs { display: none; }
+}
+
+@media (max-width: 767px) {
+  .theme-hide-sm { display: none; }
+}
+
+@media (min-width: 768px) {
+  .theme-show-sm { display: none; }
+}
+
+@media (max-width: 991px) {
+  .theme-hide-md { display: none; }
+}
+
+@media (min-width: 992px) {
+  .theme-show-md { display: none; }
+}
+
+@media (max-width: 1199px) {
+  .theme-hide-lg { display: none; }
+}
+
+@media (min-width: 1200px) {
+  .theme-show-lg { display: none; }
+}
+
+@media (max-width: 1399px) {
+  .theme-hide-xl { display: none; }
+}
+
+@media (min-width: 1400px) {
+  .theme-show-xl { display: none; }
+}

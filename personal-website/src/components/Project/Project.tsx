@@ -1,9 +1,13 @@
-import { useEffect, useState } from 'react';
-import { Badge, Button, Card, Container, Group, Image, Text } from '@mantine/core';
-import { useHover } from '@mantine/hooks';
+import React, { useEffect, useState } from 'react';
+import { useHover } from '../../hooks';
+import { Group } from '../layout/Group';
+import { Button } from '../ui/Button';
+import { Card, CardSection } from '../ui/Card';
+import { Image } from '../ui/Image';
+import { Text } from '../ui/Text';
 
 export function Project({ title = '', image = '', gif = '', desc = '', link = '' }) {
-  const { hovered, ref } = useHover();
+  const { hovered, ref } = useHover<HTMLDivElement>();
   const [displayContent, setDisplayContent] = useState(image);
   useEffect(() => {
     if (hovered && gif != '') {
@@ -15,25 +19,21 @@ export function Project({ title = '', image = '', gif = '', desc = '', link = ''
   return (
     <div ref={ref}>
       <Card
-        shadow="sm"
-        padding="lg"
-        radius="md"
-        withBorder
-        w={250}
-        h={375}
         style={{
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
+          width: '250px',
+          height: '375px',
         }}
       >
         {/* Top Content */}
         <div>
-          <Card.Section>
-            <Image src={displayContent} height={160} />
-          </Card.Section>
+          <CardSection>
+            <Image src={displayContent} h={160} />
+          </CardSection>
 
-          <Group justify="space-between" mt="md" mb="xs">
+          <Group justify="space-between">
             <Text fw={500}>{title}</Text>
           </Group>
 
@@ -43,7 +43,7 @@ export function Project({ title = '', image = '', gif = '', desc = '', link = ''
         </div>
 
         {/* Button at the Bottom */}
-        <Button color="blue" fullWidth mt="md" radius="md" href={link} component="a">
+        <Button href={link} style={{ marginTop: 'var(--theme-spacing-md)' }}>
           Open
         </Button>
       </Card>
