@@ -52,8 +52,8 @@
   --theme-font-size-xl: 1.25rem;  /* 20px */
 
   /* Font Families */
-  --theme-font-family-body: 'Verdana', sans-serif;
-  --theme-font-family-heading: 'Poppins', sans-serif;
+  --theme-font-family-body: 'Roboto Mono', monospace;
+  --theme-font-family-heading: 'Roboto Mono', monospace;
 
   /* Breakpoints (for use in JavaScript) */
   --theme-breakpoint-xs: 576px;
@@ -66,6 +66,7 @@
 /* Light Mode Variables */
 [data-theme="light"] {
   --theme-bg: var(--theme-white);
+  --theme-bg-rgb: 255, 255, 255;
   --theme-bg-secondary: var(--theme-gray-0);
   --theme-bg-tertiary: var(--theme-gray-1);
   --theme-text: var(--theme-gray-9);
@@ -78,6 +79,7 @@
 /* Dark Mode Variables (default) */
 [data-theme="dark"] {
   --theme-bg: var(--theme-gray-9);
+  --theme-bg-rgb: 33, 37, 41;
   --theme-bg-secondary: var(--theme-gray-8);
   --theme-bg-tertiary: var(--theme-gray-7);
   --theme-text: var(--theme-gray-0);

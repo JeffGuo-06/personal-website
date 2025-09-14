@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from '@/components/Header/Header';
-import { Intro } from '@/components/Intro/Intro';
+import { Portfolio } from '@/components/Portfolio/Portfolio';
 import { Education } from '../components/Education/Education';
 import { Container } from '../components/layout/Container';
 import { Stack } from '../components/layout/Stack';
@@ -12,7 +12,7 @@ export function HomePage() {
       <Header />
       <Container size="md">
         <Stack align="stretch" justify="flex-start" gap="xl">
-          <Intro />
+          <Portfolio />
           {/* <Projects /> */}
           {/* <Education /> */}
         </Stack>

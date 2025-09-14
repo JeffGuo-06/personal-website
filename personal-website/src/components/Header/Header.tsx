@@ -22,10 +22,9 @@ export function Header() {
         zIndex: 1,
         transform: `translate3d(0, ${pinned ? 0 : '-110px'}, 0)`,
         transition: 'transform 400ms ease',
-        backgroundColor: 'var(--theme-bg-secondary)',
-        borderBottom: 'solid',
-        borderBottomWidth: '1px',
-        borderColor: 'var(--theme-border)',
+        backgroundColor: 'rgba(var(--theme-bg-rgb), 0.8)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
       }}
     >
       <Flex
