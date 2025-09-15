@@ -122,9 +122,9 @@ export function WaitlistModal({ opened, onClose }: WaitlistModalProps) {
           <Text className={classes.description}>
             Be the first to know when SHOUT launches
           </Text>
-          <Text className={classes.count}>
+          {/* <Text className={classes.count}>
             {displayCount} people already waitlisted
-          </Text>
+          </Text> */}
           
           <form onSubmit={handleSubmit} className={classes.form}>
             <Stack gap="md">
@@ -150,7 +150,7 @@ export function WaitlistModal({ opened, onClose }: WaitlistModalProps) {
                   className={classes.submitButton}
                   disabled={isSubmitting || !email}
                 >
-                  {isSubmitting ? 'Joining...' : 'Join Waitlist'}
+                  {isSubmitting ? 'Joining...' : 'Join'}
                 </Button>
               </Group>
             </Stack>

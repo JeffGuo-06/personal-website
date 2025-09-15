@@ -54,7 +54,7 @@ export function ShoutPage() {
       {/* Hero Section */}
       <section className={classes.hero}>
         <Container size="lg">
-          <Center style={{ minHeight: '100vh', flexDirection: 'column' }}>
+          <Center style={{ minHeight: '90vh', flexDirection: 'column' }}>
             <Stack align="center" gap="xl">
               {/* SHOUT Logo */}
               <Title className={classes.logo}>SHOUT</Title>
