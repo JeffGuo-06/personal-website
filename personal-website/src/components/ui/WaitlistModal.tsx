@@ -100,9 +100,9 @@ export function WaitlistModal({ opened, onClose }: WaitlistModalProps) {
             <Text className={classes.description}>
               Thanks for joining the waitlist! We'll notify you as soon as SHOUT is ready.
             </Text>
-            <Text className={classes.count}>
+            {/* <Text className={classes.count}>
               You're #{waitlistCount !== null ? (waitlistCount).toLocaleString() : '...'} in line
-            </Text>
+            </Text> */}
             <Button className={classes.closeButton} onClick={handleClose}>
               Close
             </Button>
