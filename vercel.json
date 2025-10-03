@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/task-manager",
+      "destination": "https://task-manager-frontend-ten-zeta.vercel.app/"
+    },
+    {
       "source": "/task-manager/:path*",
       "destination": "https://task-manager-frontend-ten-zeta.vercel.app/:path*"
     }
