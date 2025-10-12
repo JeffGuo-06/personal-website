@@ -1,9 +1,9 @@
 import React from 'react';
-import { Header } from '@/components/Header/Header';
-import { Portfolio } from '@/components/Portfolio/Portfolio';
+import { Header } from '../components/Header/Header';
+import { Portfolio } from '../components/Portfolio/Portfolio';
 import { Education } from '../components/Education/Education';
-import { Container } from '../components/layout/Container';
-import { Stack } from '../components/layout/Stack';
+import { Container } from '@/shared/components/layout/Container';
+import { Stack } from '@/shared/components/layout/Stack';
 import { Projects } from '../components/Projects/Projects';
 
 export function HomePage() {

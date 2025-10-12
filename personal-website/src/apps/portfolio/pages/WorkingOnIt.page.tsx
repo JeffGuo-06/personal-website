@@ -1,7 +1,7 @@
 import React from 'react';
-import { Header } from '@/components/Header/Header';
-import { Center } from '../components/layout/Center';
-import { Text } from '../components/ui/Text';
+import { Header } from '../components/Header/Header';
+import { Center } from '@/shared/components/layout/Center';
+import { Text } from '@/shared/components/ui/Text';
 
 export function WorkingOnIt() {
   return (

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box } from '../layout/Box';
-import { Container } from '../layout/Container';
-import { Flex } from '../layout/Flex';
-import { Space } from '../layout/Space';
+import { Box } from '@/shared/components/layout/Box';
+import { Container } from '@/shared/components/layout/Container';
+import { Flex } from '@/shared/components/layout/Flex';
+import { Space } from '@/shared/components/layout/Space';
 import { Project } from '../Project/Project';
-import { Title } from '../ui/Title';
+import { Title } from '@/shared/components/ui/Title';
 import classes from '../styles/Title.module.css';
 
 export function Projects() {

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useHover } from '../../hooks';
-import { Group } from '../layout/Group';
-import { Button } from '../ui/Button';
-import { Card, CardSection } from '../ui/Card';
-import { Image } from '../ui/Image';
-import { Text } from '../ui/Text';
+import { useHover } from '@/shared/hooks';
+import { Group } from '@/shared/components/layout/Group';
+import { Button } from '@/shared/components/ui/Button';
+import { Card, CardSection } from '@/shared/components/ui/Card';
+import { Image } from '@/shared/components/ui/Image';
+import { Text } from '@/shared/components/ui/Text';
 
 export function Project({ title = '', image = '', gif = '', desc = '', link = '' }) {
   const { hovered, ref } = useHover<HTMLDivElement>();

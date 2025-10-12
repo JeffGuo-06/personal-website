@@ -1,7 +1,7 @@
 import React from 'react';
-import { Anchor } from '../ui/Anchor';
-import { Text } from '../ui/Text';
-import { Title } from '../ui/Title';
+import { Anchor } from '@/shared/components/ui/Anchor';
+import { Text } from '@/shared/components/ui/Text';
+import { Title } from '@/shared/components/ui/Title';
 import classes from './Welcome.module.css';
 
 export function Welcome() {

@@ -5,17 +5,17 @@ import {
   IconShield,
   IconMicrophone
 } from '@tabler/icons-react';
-import { Container } from '../components/layout/Container';
-import { Stack } from '../components/layout/Stack';
-import { Flex } from '../components/layout/Flex';
-import { Group } from '../components/layout/Group';
-import { Center } from '../components/layout/Center';
-import { Box } from '../components/layout/Box';
-import { Button } from '../components/ui/Button';
-import { Text } from '../components/ui/Text';
-import { Title } from '../components/ui/Title';
-import { Card } from '../components/ui/Card';
-import { WaitlistModal } from '../components/ui/WaitlistModal';
+import { Container } from '@/shared/components/layout/Container';
+import { Stack } from '@/shared/components/layout/Stack';
+import { Flex } from '@/shared/components/layout/Flex';
+import { Group } from '@/shared/components/layout/Group';
+import { Center } from '@/shared/components/layout/Center';
+import { Box } from '@/shared/components/layout/Box';
+import { Button } from '@/shared/components/ui/Button';
+import { Text } from '@/shared/components/ui/Text';
+import { Title } from '@/shared/components/ui/Title';
+import { Card } from '@/shared/components/ui/Card';
+import { WaitlistModal } from '../components/WaitlistModal/WaitlistModal';
 import classes from './Shout.module.css';
 
 export function ShoutPage() {

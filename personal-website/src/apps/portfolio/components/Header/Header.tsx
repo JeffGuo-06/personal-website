@@ -2,10 +2,10 @@ import React from 'react';
 
 import './Header.css';
 
-import { useHeadroom } from '../../hooks';
-import { Box } from '../layout/Box';
-import { Flex } from '../layout/Flex';
-import { Button } from '../ui/Button';
+import { useHeadroom } from '@/shared/hooks';
+import { Box } from '@/shared/components/layout/Box';
+import { Flex } from '@/shared/components/layout/Flex';
+import { Button } from '@/shared/components/ui/Button';
 
 export function Header() {
   const pinned = useHeadroom({ fixedAt: 120 });

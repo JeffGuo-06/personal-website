@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Modal } from './Modal';
-import { Button } from './Button';
-import { Text } from './Text';
-import { Title } from './Title';
-import { Stack } from '../layout/Stack';
-import { Group } from '../layout/Group';
+import { Modal } from '@/shared/components/ui/Modal';
+import { Button } from '@/shared/components/ui/Button';
+import { Text } from '@/shared/components/ui/Text';
+import { Title } from '@/shared/components/ui/Title';
+import { Stack } from '@/shared/components/layout/Stack';
+import { Group } from '@/shared/components/layout/Group';
 import classes from './WaitlistModal.module.css';
 
 interface WaitlistModalProps {

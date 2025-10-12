@@ -13,14 +13,14 @@ import {
   IconBrandJavascript,
   IconBrandNextjs
 } from '@tabler/icons-react';
-import { Box } from '../layout/Box';
-import { Flex } from '../layout/Flex';
-import { Group } from '../layout/Group';
-import { Space } from '../layout/Space';
-import { Stack } from '../layout/Stack';
-import { ActionIcon } from '../ui/ActionIcon';
-import { Text } from '../ui/Text';
-import { Title } from '../ui/Title';
+import { Box } from '@/shared/components/layout/Box';
+import { Flex } from '@/shared/components/layout/Flex';
+import { Group } from '@/shared/components/layout/Group';
+import { Space } from '@/shared/components/layout/Space';
+import { Stack } from '@/shared/components/layout/Stack';
+import { ActionIcon } from '@/shared/components/ui/ActionIcon';
+import { Text } from '@/shared/components/ui/Text';
+import { Title } from '@/shared/components/ui/Title';
 import classes from './Portfolio.module.css';
 
 const skills = [

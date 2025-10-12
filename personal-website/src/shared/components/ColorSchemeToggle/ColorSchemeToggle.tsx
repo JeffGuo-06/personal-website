@@ -1,7 +1,7 @@
 import React from 'react';
-import { useColorScheme } from '../../theme';
-import { Group } from '../layout/Group';
-import { Button } from '../ui/Button';
+import { useColorScheme } from '@/shared/theme';
+import { Group } from '@/shared/components/layout/Group';
+import { Button } from '@/shared/components/ui/Button';
 
 export function ColorSchemeToggle() {
   const { setColorScheme } = useColorScheme();

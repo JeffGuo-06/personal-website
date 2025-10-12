@@ -1,5 +1,5 @@
 import { Router } from './Router';
-import { ThemeProvider } from './theme';
+import { ThemeProvider } from '@/shared/theme';
 
 export default function App() {
   return (

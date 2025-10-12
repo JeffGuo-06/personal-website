@@ -1,9 +1,9 @@
 import React from 'react';
-import { Group } from '../layout/Group';
-import { Space } from '../layout/Space';
-import { Image } from '../ui/Image';
-import { Text } from '../ui/Text';
-import { Title } from '../ui/Title';
+import { Group } from '@/shared/components/layout/Group';
+import { Space } from '@/shared/components/layout/Space';
+import { Image } from '@/shared/components/ui/Image';
+import { Text } from '@/shared/components/ui/Text';
+import { Title } from '@/shared/components/ui/Title';
 import classes from '../styles/Title.module.css';
 
 export function Education() {
