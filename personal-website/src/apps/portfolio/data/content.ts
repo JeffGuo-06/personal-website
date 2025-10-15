@@ -1,6 +1,7 @@
 // Import assets
 import linkedinmaxxAudio from '../assets/linkedinmaxx.mp3';
 import linkedinmaxxCover from '../assets/linkedinmaxx.png';
+import nailongifyImage from '../assets/nailongify.png';
 
 // Types
 export interface Song {
@@ -129,7 +130,7 @@ export const projects: Project[] = [
     codeLink: 'https://github.com/JeffGuo-06/nailongify',
     demoLink: 'https://nailongify.guojeff.com',
     imageType: 'standard',
-    imageSrc: '/assets/nailongify.png',
+    imageSrc: nailongifyImage,
   },
   {
     title: 'The Boards',
