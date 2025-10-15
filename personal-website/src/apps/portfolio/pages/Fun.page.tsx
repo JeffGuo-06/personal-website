@@ -196,6 +196,34 @@ export function FunPage() {
     return () => audio.removeEventListener('ended', handleSongEnd);
   }, [currentSong]);
 
+  // Update document title based on current song
+  useEffect(() => {
+    if (currentSong && isPlaying) {
+      document.title = `${currentSong.title} - ${currentSong.artist}`;
+    } else if (currentSong) {
+      document.title = `${currentSong.title} - ${currentSong.artist}`;
+    } else {
+      document.title = 'Jeff Guo';
+    }
+
+    return () => {
+      document.title = 'Jeff Guo';
+    };
+  }, [currentSong, isPlaying]);
+
+  // Update favicon based on current song
+  useEffect(() => {
+    const faviconLink = document.querySelector("link[rel='icon']") as HTMLLinkElement;
+
+    if (!faviconLink) return;
+
+    if (currentSong && isPlaying) {
+      faviconLink.href = currentSong.coverImage;
+    } else {
+      faviconLink.href = '/assets/jeffguo.jpg';
+    }
+  }, [currentSong, isPlaying]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
