@@ -10,14 +10,6 @@ import { Button } from '@/shared/components/ui/Button';
 export function Header() {
   const pinned = useHeadroom({ fixedAt: 120 });
 
-  const scrollToProjects = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
   return (
     <Box
       style={{
@@ -47,14 +39,6 @@ export function Header() {
       >
         <Button href="./" variant="transparent">
           Home
-        </Button>
-        <Button
-          variant="transparent"
-          onClick={scrollToProjects}
-          component="button"
-          type="button"
-        >
-          Projects
         </Button>
         <Button href="/fun" variant="transparent">
           the flip side
