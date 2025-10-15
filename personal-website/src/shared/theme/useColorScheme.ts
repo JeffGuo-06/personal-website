@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-export type ColorScheme = 'light' | 'dark' | 'auto';
+export type ColorScheme = 'light' | 'dark';
 
 interface ColorSchemeContextValue {
   colorScheme: ColorScheme;
@@ -11,17 +11,12 @@ interface ColorSchemeContextValue {
 
 const STORAGE_KEY = 'theme-color-scheme';
 
-function getSystemColorScheme(): 'light' | 'dark' {
-  if (typeof window === 'undefined') return 'dark';
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
 function getStoredColorScheme(): ColorScheme {
   if (typeof window === 'undefined') return 'dark';
 
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored && ['light', 'dark', 'auto'].includes(stored)) {
+    if (stored && ['light', 'dark'].includes(stored)) {
       return stored as ColorScheme;
     }
   } catch (error) {
@@ -43,27 +38,9 @@ function setStoredColorScheme(scheme: ColorScheme): void {
 
 export function useColorScheme(): ColorSchemeContextValue {
   const [colorScheme, setColorSchemeState] = useState<ColorScheme>(getStoredColorScheme);
-  const [systemColorScheme, setSystemColorScheme] = useState<'light' | 'dark'>(
-    getSystemColorScheme
-  );
 
-  // Listen for system color scheme changes
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-    const handleChange = (e: MediaQueryListEvent) => {
-      setSystemColorScheme(e.matches ? 'dark' : 'light');
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  // Compute the actual color scheme to use
-  const computedColorScheme: 'light' | 'dark' =
-    colorScheme === 'auto' ? systemColorScheme : colorScheme;
+  // Compute the actual color scheme to use (always use the explicit setting)
+  const computedColorScheme: 'light' | 'dark' = colorScheme;
 
   // Update DOM attribute when computed color scheme changes
   useEffect(() => {
@@ -78,13 +55,7 @@ export function useColorScheme(): ColorSchemeContextValue {
   }, []);
 
   const toggleColorScheme = useCallback(() => {
-    if (colorScheme === 'light') {
-      setColorScheme('dark');
-    } else if (colorScheme === 'dark') {
-      setColorScheme('auto');
-    } else {
-      setColorScheme('light');
-    }
+    setColorScheme(colorScheme === 'light' ? 'dark' : 'light');
   }, [colorScheme, setColorScheme]);
 
   return {
