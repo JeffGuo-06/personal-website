@@ -129,7 +129,7 @@ export const projects: Project[] = [
     codeLink: 'https://github.com/JeffGuo-06/nailongify',
     demoLink: 'https://nailongify.guojeff.com',
     imageType: 'standard',
-    imageSrc: '/src/apps/portfolio/assets/nailongify.PNG',
+    imageSrc: '/src/apps/portfolio/assets/nailongify.png',
   },
   {
     title: 'The Boards',
