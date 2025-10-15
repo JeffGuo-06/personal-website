@@ -5,7 +5,7 @@ export default function App() {
   return (
     <>
       <title>My Custom Website Title</title>
-      <ThemeProvider defaultColorScheme="dark">
+      <ThemeProvider defaultColorScheme="light">
         <Router />
       </ThemeProvider>
     </>

@@ -1,0 +1,145 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modalContent {
+  background: linear-gradient(
+    135deg,
+    rgba(250, 204, 21, 0.98) 0%,
+    rgba(251, 191, 36, 0.98) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(180, 83, 9, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(180, 83, 9, 0.4);
+  color: #422006;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(180, 83, 9, 0.6);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(250, 204, 21, 0.3);
+}
+
+.header {
+  padding: 2rem 2rem 1.5rem;
+  border-bottom: 1px solid rgba(180, 83, 9, 0.2);
+  text-align: center;
+}
+
+.songTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #422006;
+  margin: 0 0 0.5rem 0;
+}
+
+.songArtist {
+  font-size: 1rem;
+  color: #713f12;
+  margin: 0;
+}
+
+.lyricsContainer {
+  padding: 2rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.lyrics {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #422006;
+  white-space: pre-wrap;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .modalOverlay {
+    padding: 1rem;
+  }
+
+  .modalContent {
+    max-height: 90vh;
+  }
+
+  .header {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+
+  .songTitle {
+    font-size: 1.5rem;
+  }
+
+  .lyricsContainer {
+    padding: 1.5rem;
+  }
+
+  .closeButton {
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+  }
+}
