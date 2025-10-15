@@ -50,7 +50,7 @@ export function Projects() {
 
   return (
     <>
-      <Box style={{ margin: '100px 0', marginTop: '100px' }}>
+      <Box id="projects" style={{ margin: '100px 0', marginTop: '100px' }}>
         <Title className={classes.title}>Projects</Title>
         <Space h="xl" />
         <Container>

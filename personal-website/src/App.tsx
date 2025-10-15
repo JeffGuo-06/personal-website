@@ -4,7 +4,6 @@ import { ThemeProvider } from '@/shared/theme';
 export default function App() {
   return (
     <>
-      <title>My Custom Website Title</title>
       <ThemeProvider defaultColorScheme="light">
         <Router />
       </ThemeProvider>

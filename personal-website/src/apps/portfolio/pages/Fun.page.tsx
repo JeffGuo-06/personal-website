@@ -170,6 +170,32 @@ export function FunPage() {
     }
   }, [isPlaying, currentSong]);
 
+  // Auto-play next song when current song ends
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleSongEnd = () => {
+      if (!currentSong) return;
+
+      const currentIndex = songs.findIndex(song => song.audioSrc === currentSong.audioSrc);
+      const nextIndex = (currentIndex + 1) % songs.length;
+      const nextSong = songs[nextIndex];
+
+      // If it's the same song (single song playlist), restart it
+      if (nextSong.audioSrc === currentSong.audioSrc) {
+        audio.currentTime = 0;
+        audio.play();
+      } else {
+        setCurrentSong(nextSong);
+        setIsPlaying(true);
+      }
+    };
+
+    audio.addEventListener('ended', handleSongEnd);
+    return () => audio.removeEventListener('ended', handleSongEnd);
+  }, [currentSong]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -237,7 +263,7 @@ export function FunPage() {
           >
             <Flex gap="md" justify="flex-start" align="center" wrap="wrap">
               <Title className={classes.title}>
-                {pageContent.intro.name} <span className={classes.divider}>|</span> <span className={classes.role}>{pageContent.intro.role}</span>
+                {pageContent.intro.name} <span className={classes.divider}></span> <span className={classes.role}>{pageContent.intro.role}</span>
               </Title>
               <div className={classes.locationTag}>
                 {pageContent.intro.location}

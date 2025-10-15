@@ -10,6 +10,13 @@ import { Button } from '@/shared/components/ui/Button';
 export function Header() {
   const pinned = useHeadroom({ fixedAt: 120 });
 
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <Box
       style={{
@@ -40,8 +47,12 @@ export function Header() {
         <Button href="./" variant="transparent">
           Home
         </Button>
-        <Button variant="transparent">About Me</Button>
-        <Button variant="transparent">Projects</Button>
+        <Button variant="transparent" onClick={scrollToProjects}>
+          Projects
+        </Button>
+        <Button href="/fun" variant="transparent">
+          the flip side
+        </Button>
       </Flex>
     </Box>
   );
