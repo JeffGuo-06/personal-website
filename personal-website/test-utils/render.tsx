@@ -4,7 +4,7 @@ import { ThemeProvider } from '@/shared/theme';
 export function render(ui: React.ReactNode) {
   return testingLibraryRender(ui, {
     wrapper: ({ children }: { children: React.ReactNode }) => (
-      <ThemeProvider defaultColorScheme="dark">{children}</ThemeProvider>
+      <ThemeProvider>{children}</ThemeProvider>
     ),
   });
 }

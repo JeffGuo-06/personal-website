@@ -121,7 +121,7 @@ get ur linkedin on
 ];
 
 // Projects Data
-export const projects: Project[] = [
+export const gamesProjects: Project[] = [
   {
     title: 'Nailongify',
     tech: ['If life was a highway,', "I'd wanna ride it", 'All Nailong'],
@@ -132,6 +132,10 @@ export const projects: Project[] = [
     imageType: 'standard',
     imageSrc: nailongifyImage,
   },
+  // Add more games here...
+];
+
+export const otherProjects: Project[] = [
   {
     title: 'The Boards',
     tech: ['React Native', 'Expo', 'Supabase'],
@@ -170,6 +174,10 @@ Also, md stands for markdown, it's supposed to be a niche coding thing NOT medic
     music: {
       title: 'Music',
       subtitle: 'Name a developer that also makes music?\nCome on now.',
+    },
+    other: {
+      title: 'You might also like',
+      subtitle: 'More stuff I\'ve been working on.',
     },
   },
   cta: {

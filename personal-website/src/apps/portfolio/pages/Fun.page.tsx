@@ -13,7 +13,7 @@ import { Group } from '@/shared/components/layout/Group';
 import { Text } from '@/shared/components/ui/Text';
 import { Title } from '@/shared/components/ui/Title';
 import { MusicPlayerModal } from './MusicPlayerModal';
-import { songs, projects, pageContent, type Song } from '../data/content';
+import { songs, gamesProjects, otherProjects, pageContent, type Song } from '../data/content';
 import classes from './Fun.module.css';
 
 // Floating Card Component for 3D hover effect
@@ -272,6 +272,9 @@ export function FunPage() {
           <button onClick={() => scrollToSection('music')} className={classes.navButton}>
             Music
           </button>
+          <button onClick={() => scrollToSection('other')} className={classes.navButton}>
+            Other
+          </button>
         </div>
       </nav>
 
@@ -339,83 +342,79 @@ export function FunPage() {
         </div>
       </div>
 
-      {/* Section 2: Games Header */}
+      {/* Section 2: Games */}
       <div id="games" className={classes.snapSection}>
         <div className={classes.sectionContent}>
-          <div className={classes.musicSection}>
+          <div className={classes.sectionHeader}>
             <Title order={3} className={classes.sectionTitle}>{pageContent.sections.games.title}</Title>
-            <Text className={classes.musicSubtitle}>
+            <Text className={classes.sectionSubtitle}>
               {pageContent.sections.games.subtitle}
             </Text>
+            <div className={classes.projectsList}>
+              {gamesProjects.map((project) => (
+                <div key={project.title} className={classes.project}>
+                  <div className={classes.projectLeft}>
+                    <Title order={4} className={classes.projectTitle}>{project.title}</Title>
+                    <Group gap="xs" className={classes.projectTech}>
+                      {project.tech.map((tech, i) => (
+                        <span key={i} className={classes.techTag}>{tech}</span>
+                      ))}
+                    </Group>
+                    <Text className={classes.projectDescription}>
+                      {project.description.split('\n').map((line, i) => (
+                        <React.Fragment key={i}>
+                          {line}
+                          {i < project.description.split('\n').length - 1 && <br />}
+                        </React.Fragment>
+                      ))}
+                    </Text>
+                    <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className={classes.projectCta}>
+                      Check it out
+                    </a>
+                    {project.codeLink && (
+                      <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className={classes.codeLink}>
+                        {project.codeLink.includes('github') ? "Here's the code if you want" : 'Code'}
+                      </a>
+                    )}
+                  </div>
+                  <div className={classes.projectRight}>
+                    {project.imageType === 'iphone' ? (
+                      <FloatingCard
+                        href={project.demoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={classes.projectImageLink}
+                      >
+                        <div className={classes.iphoneProjectImage}>
+                          <img src={project.imageSrc} alt={`${project.title} Screenshot`} />
+                        </div>
+                      </FloatingCard>
+                    ) : (
+                      <a
+                        href={project.demoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={classes.projectImageLink}
+                      >
+                        <div className={classes.projectImage}>
+                          <img src={project.imageSrc} alt={`${project.title} Screenshot`} />
+                        </div>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Projects */}
-      {projects.map((project) => (
-        <div key={project.title} className={classes.snapSection}>
-          <div className={classes.sectionContent}>
-            <div className={classes.project}>
-              <div className={classes.projectLeft}>
-                <Title order={4} className={classes.projectTitle}>{project.title}</Title>
-                <Group gap="xs" className={classes.projectTech}>
-                  {project.tech.map((tech, i) => (
-                    <span key={i} className={classes.techTag}>{tech}</span>
-                  ))}
-                </Group>
-                <Text className={classes.projectDescription}>
-                  {project.description.split('\n').map((line, i) => (
-                    <React.Fragment key={i}>
-                      {line}
-                      {i < project.description.split('\n').length - 1 && <br />}
-                    </React.Fragment>
-                  ))}
-                </Text>
-                <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className={classes.projectCta}>
-                  Check it out
-                </a>
-                {project.codeLink && (
-                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className={classes.codeLink}>
-                    {project.codeLink.includes('github') ? "Here's the code if you want" : 'Code'}
-                  </a>
-                )}
-              </div>
-              <div className={classes.projectRight}>
-                {project.imageType === 'iphone' ? (
-                  <FloatingCard
-                    href={project.demoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={classes.projectImageLink}
-                  >
-                    <div className={classes.iphoneProjectImage}>
-                      <img src={project.imageSrc} alt={`${project.title} Screenshot`} />
-                    </div>
-                  </FloatingCard>
-                ) : (
-                  <a
-                    href={project.demoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={classes.projectImageLink}
-                  >
-                    <div className={classes.projectImage}>
-                      <img src={project.imageSrc} alt={`${project.title} Screenshot`} />
-                    </div>
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
-
       {/* Section 3: Music */}
       <div id="music" className={classes.snapSection}>
         <div className={classes.sectionContent}>
-          <div className={classes.musicSection}>
+          <div className={classes.sectionHeader}>
             <Title order={3} className={classes.sectionTitle}>{pageContent.sections.music.title}</Title>
-            <Text className={classes.musicSubtitle}>
+            <Text className={classes.sectionSubtitle}>
               {pageContent.sections.music.subtitle.split('\n').map((line, i) => (
                 <React.Fragment key={i}>
                   {line}
@@ -440,7 +439,74 @@ export function FunPage() {
         </div>
       </div>
 
-      {/* Section 4: Final CTA */}
+      {/* Section 4: Other Projects */}
+      <div id="other" className={classes.snapSection}>
+        <div className={classes.sectionContent}>
+          <div className={classes.sectionHeader}>
+            <Title order={3} className={classes.sectionTitle}>{pageContent.sections.other.title}</Title>
+            <Text className={classes.sectionSubtitle}>
+              {pageContent.sections.other.subtitle}
+            </Text>
+            <div className={classes.projectsList}>
+              {otherProjects.map((project) => (
+                <div key={project.title} className={classes.project}>
+                  <div className={classes.projectLeft}>
+                    <Title order={4} className={classes.projectTitle}>{project.title}</Title>
+                    <Group gap="xs" className={classes.projectTech}>
+                      {project.tech.map((tech, i) => (
+                        <span key={i} className={classes.techTag}>{tech}</span>
+                      ))}
+                    </Group>
+                    <Text className={classes.projectDescription}>
+                      {project.description.split('\n').map((line, i) => (
+                        <React.Fragment key={i}>
+                          {line}
+                          {i < project.description.split('\n').length - 1 && <br />}
+                        </React.Fragment>
+                      ))}
+                    </Text>
+                    <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className={classes.projectCta}>
+                      Check it out
+                    </a>
+                    {project.codeLink && (
+                      <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className={classes.codeLink}>
+                        {project.codeLink.includes('github') ? "Here's the code if you want" : 'Code'}
+                      </a>
+                    )}
+                  </div>
+                  <div className={classes.projectRight}>
+                    {project.imageType === 'iphone' ? (
+                      <FloatingCard
+                        href={project.demoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={classes.projectImageLink}
+                      >
+                        <div className={classes.iphoneProjectImage}>
+                          <img src={project.imageSrc} alt={`${project.title} Screenshot`} />
+                        </div>
+                      </FloatingCard>
+                    ) : (
+                      <a
+                        href={project.demoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={classes.projectImageLink}
+                      >
+                        <div className={classes.projectImage}>
+                          <img src={project.imageSrc} alt={`${project.title} Screenshot`} />
+                        </div>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Section 5: Final CTA */}
       <div className={classes.snapSection}>
         <div className={classes.sectionContent}>
           <div className={classes.ctaSection}>

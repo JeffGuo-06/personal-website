@@ -2,10 +2,10 @@ import React from 'react';
 
 import './Header.css';
 
-import { useHeadroom } from '@/shared/hooks';
 import { Box } from '@/shared/components/layout/Box';
 import { Flex } from '@/shared/components/layout/Flex';
 import { Button } from '@/shared/components/ui/Button';
+import { useHeadroom } from '@/shared/hooks';
 
 export function Header() {
   const pinned = useHeadroom({ fixedAt: 120 });
@@ -22,9 +22,9 @@ export function Header() {
         zIndex: 1,
         transform: `translate3d(0, ${pinned ? 0 : '-110px'}, 0)`,
         transition: 'transform 400ms ease',
-        backgroundColor: 'rgba(var(--theme-bg-rgb), 0.8)',
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)',
+        backgroundColor: 'rgba(70, 70, 70, 0.010)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
       }}
     >
       <Flex

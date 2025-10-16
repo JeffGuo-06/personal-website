@@ -44,17 +44,9 @@
   font-weight: 700;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: all 0.2s ease;
   font-family: var(--theme-font-family-body);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-}
-
-.navButton:hover {
-  background: rgba(255, 255, 255, 0.35);
-  border-color: rgba(180, 83, 9, 0.6);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(250, 204, 21, 0.3);
 }
 
 /* Snap Scroll Container */
@@ -89,7 +81,7 @@
   background: #fffbeb;
 }
 
-.snapSection:has(.musicSection) {
+.snapSection:has(.sectionHeader) {
   padding-bottom: 1rem;
 }
 
@@ -120,7 +112,7 @@
   max-width: 600px;
 }
 
-.musicSubtitle {
+.sectionSubtitle {
   font-size: 0.875rem;
   color: #0a0a0a;
   opacity: 0.8;
@@ -299,13 +291,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  margin-bottom: 3rem;
   padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(250, 204, 21, 0.2);
-}
-
-.project:last-child {
-  border-bottom: none;
 }
 
 .projectLeft {
@@ -596,8 +582,8 @@
   color: #713f12;
 }
 
-/* Music Section */
-.musicSection {
+/* Section Header (for all category headers: games, music, other) */
+.sectionHeader {
   padding: 2rem 0;
 }
 
@@ -605,6 +591,13 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   margin-top: 2rem;
 }
 

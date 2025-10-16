@@ -178,10 +178,6 @@
   color: var(--theme-text);
 }
 
-.transparent:hover:not(.disabled) {
-  background-color: var(--theme-gray-1);
-}
-
 /* States */
 .disabled {
   opacity: 0.6;
@@ -250,6 +246,3 @@
   background-color: var(--theme-primary-9);
 }
 
-[data-theme="dark"] .transparent:hover:not(.disabled) {
-  background-color: var(--theme-gray-9);
-}

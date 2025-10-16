@@ -1,5 +1,4 @@
-import React, { createContext, ReactNode, useContext } from 'react';
-import { ColorScheme, useColorScheme } from './useColorScheme';
+import React, { createContext, ReactNode, useContext, useEffect } from 'react';
 
 import './theme.css';
 
@@ -89,35 +88,24 @@ export const theme = {
 
 export interface ThemeContextValue {
   theme: typeof theme;
-  colorScheme: ColorScheme;
-  computedColorScheme: 'light' | 'dark';
-  setColorScheme: (scheme: ColorScheme) => void;
-  toggleColorScheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 export interface ThemeProviderProps {
   children: ReactNode;
-  defaultColorScheme?: ColorScheme;
 }
 
-export function ThemeProvider({ children, defaultColorScheme = 'dark' }: ThemeProviderProps) {
-  const colorSchemeHook = useColorScheme();
-
-  // Apply default color scheme on initial load
-  React.useEffect(() => {
+export function ThemeProvider({ children }: ThemeProviderProps) {
+  // Set light mode permanently on mount
+  useEffect(() => {
     if (typeof window !== 'undefined') {
-      const storedScheme = localStorage.getItem('theme-color-scheme');
-      if (!storedScheme) {
-        colorSchemeHook.setColorScheme(defaultColorScheme);
-      }
+      document.documentElement.setAttribute('data-theme', 'light');
     }
-  }, [defaultColorScheme, colorSchemeHook]);
+  }, []);
 
   const contextValue: ThemeContextValue = {
     theme,
-    ...colorSchemeHook,
   };
 
   return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;

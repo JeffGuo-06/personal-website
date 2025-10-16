@@ -7,6 +7,7 @@
 Navigate to the `personal-website/` directory and run:
 
 ```bash
+npm install
 npm run dev
 ```
 

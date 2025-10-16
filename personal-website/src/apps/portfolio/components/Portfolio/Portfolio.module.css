@@ -8,6 +8,13 @@
   /* Hide scrollbar */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
+
+  /* Dark theme for portfolio page */
+  background: #1a1a1a;
+  --theme-bg: #1a1a1a;
+  --theme-bg-rgb: 26, 26, 26;
+  --theme-text: #f8f9fa;
+  --theme-text-secondary: #e9ecef;
 }
 
 /* Add custom scroll timing for smoother, slower snapping */
@@ -39,6 +46,7 @@ html {
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  background: #1a1a1a;
 }
 
 .sectionContent {
@@ -82,18 +90,12 @@ html {
 
 /* Liquid Glass Card */
 .glassCard {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 
-    0 8px 32px 0 rgba(31, 38, 135, 0.37),
-    inset 0 0 20px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(96, 165, 250, 0.3);
   padding: 2.5rem;
   padding-bottom: 5rem;
   position: relative;
@@ -112,7 +114,7 @@ html {
   height: 200%;
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.03) 0%,
     transparent 70%
   );
   pointer-events: none;
@@ -170,15 +172,15 @@ html {
 }
 
 .locationTag {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   padding: 8px 16px;
   color: var(--theme-text);
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
   position: relative;
   z-index: 1;
 }
