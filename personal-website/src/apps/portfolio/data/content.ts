@@ -2,7 +2,7 @@
 import linkedinmaxxAudio from '../assets/linkedinmaxx.mp3';
 import linkedinmaxxCover from '../assets/linkedinmaxx.png';
 import nailongifyImage from '../assets/nailongify.png';
-
+import propertyImage from  '../assets/property.png';
 // Types
 export interface Song {
   title: string;
@@ -122,16 +122,27 @@ get ur linkedin on
 
 // Projects Data
 export const gamesProjects: Project[] = [
+    {
+    title: 'Property Higher or Lower?',
+    tech: ['Selenium','Node'],
+    description:
+      "Housing is cooked rn, and I made a game out of it. Guess which property in the GTA costs more.",
+    //codeLink: 'https://github.com/JeffGuo-06/nailongify',
+    demoLink: 'https://property.guojeff.com',
+    imageType: 'standard',
+    imageSrc: propertyImage,
+  },
   {
     title: 'Nailongify',
     tech: ['If life was a highway,', "I'd wanna ride it", 'All Nailong'],
     description:
       "Use your camera to turn yourself into Nailong, hold each nailong face to unlock them, try to unlock all 8 in the fastest time. Also there's a leaderboard because, it's fun.",
-    codeLink: 'https://github.com/JeffGuo-06/nailongify',
+    //codeLink: 'https://github.com/JeffGuo-06/nailongify',
     demoLink: 'https://nailongify.guojeff.com',
     imageType: 'standard',
     imageSrc: nailongifyImage,
-  },
+  }
+
   // Add more games here...
 ];
 
@@ -161,10 +172,9 @@ export const otherProjects: Project[] = [
 export const pageContent = {
   intro: {
     name: 'JEFFGUO.md',
-    role: 'Creator & Developer',
+    role: 'Full Slack Developer',
     location: 'Toronto, ON',
-    description: `If you're an employer, you're on the wrong page. This is my shitpostfolio.
-Also, md stands for markdown, it's supposed to be a niche coding thing NOT medical doctor, although I'll take the free doctor aura.`,
+    description: `If you're an employer, you're on the wrong page. This is my shitpostfolio.`
   },
   sections: {
     games: {
@@ -173,7 +183,7 @@ Also, md stands for markdown, it's supposed to be a niche coding thing NOT medic
     },
     music: {
       title: 'Music',
-      subtitle: 'Name a developer that also makes music?\nCome on now.',
+      subtitle: 'A developer that also makes music?\n Are we deadass.',
     },
     other: {
       title: 'You might also like',
