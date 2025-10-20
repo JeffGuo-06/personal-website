@@ -1,0 +1,656 @@
+/* Mobile-first styles */
+.artistPage {
+  width: 100%;
+  min-height: 100vh;
+  background: #121212;
+  position: relative;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  display: flex;
+}
+
+/* Hide scrollbar for webkit browsers */
+.artistPage::-webkit-scrollbar {
+  display: none;
+}
+
+/* Desktop Sidebar Player */
+.desktopSidebar {
+  display: none;
+}
+
+/* Main Content Container */
+.mainContent {
+  flex: 1;
+  width: 100%;
+}
+
+/* Sticky Header */
+.stickyHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(10px);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .stickyHeader {
+    left: 350px;
+  }
+}
+
+.stickyHeader[style*="opacity: 1"] {
+  pointer-events: auto;
+}
+
+.stickyHeaderContent {
+  padding: 1rem 1.5rem;
+}
+
+.stickyHeaderContent h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+/* Hero Header Section */
+.heroHeader {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/jeffguo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000000;
+  transition: opacity 0.1s ease;
+}
+
+.headerContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  z-index: 10;
+}
+
+.title {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* Dark Content Container */
+.contentContainer {
+  background: #121212;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  padding: 1.5rem;
+}
+
+/* Social Section */
+.socialSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.followButton {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.followButton:hover {
+  border-color: #ffffff;
+  transform: scale(1.02);
+}
+
+.socialIcons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #b3b3b3;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.socialIcon:hover {
+  color: #ffffff;
+}
+
+.socialIcon svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.socialIcon span {
+  font-weight: 500;
+  display: none;
+}
+
+.section {
+  margin-bottom: 3rem;
+  color: #ffffff;
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.section p {
+  color: #b3b3b3;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Music Section */
+.songList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.songRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.songRow:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.songRowActive {
+  background: rgba(250, 204, 21, 0.15);
+  border-color: rgba(250, 204, 21, 0.3);
+}
+
+.songRowActive:hover {
+  background: rgba(250, 204, 21, 0.2);
+  border-color: rgba(250, 204, 21, 0.4);
+}
+
+.songCover {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.songInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.songTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+
+.songRowActive .songTitle {
+  color: #fbbf24;
+}
+
+.songArtist {
+  font-size: 0.875rem;
+  color: #b3b3b3;
+}
+
+/* Playing Indicator with animated bars */
+.playingIndicator {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 20px;
+}
+
+.bar {
+  width: 3px;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  border-radius: 2px;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.bar:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.bar:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bar:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    height: 6px;
+  }
+  50% {
+    height: 20px;
+  }
+}
+
+/* Footer Music Player */
+.footerPlayer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.footerPlayerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerSongInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footerCover {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.footerText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footerTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.footerArtist {
+  font-size: 0.85rem;
+  color: #b3b3b3;
+}
+
+.footerControls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.playButton {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.playButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Tablet and above */
+@media (min-width: 768px) {
+  .stickyHeaderContent {
+    padding: 1.25rem 2rem;
+  }
+
+  .stickyHeaderContent h2 {
+    font-size: 1.5rem;
+  }
+
+  .heroHeader {
+    height: 65vh;
+  }
+
+  .headerContent {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .title {
+    font-size: 4.5rem;
+  }
+
+  .content {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .socialIcon span {
+    display: inline;
+  }
+
+  .section h2 {
+    font-size: 2rem;
+  }
+
+  .section p {
+    font-size: 1rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  /* Show sidebar on desktop */
+  .desktopSidebar {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 350px;
+    background: #121212;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-y: auto;
+    z-index: 50;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .desktopSidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebarContent {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .sidebarAlbumCover {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .sidebarSongInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sidebarTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .sidebarArtist {
+    font-size: 1rem;
+    color: #b3b3b3;
+    margin: 0;
+  }
+
+  .sidebarSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .sidebarSectionTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .sidebarSectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    text-align: left;
+  }
+
+  .sidebarSectionHeader:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .lyricsContainer {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .lyricsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .expandButton {
+    background: transparent;
+    border: none;
+    color: #b3b3b3;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    transition: color 0.2s ease;
+  }
+
+  .expandButton:hover {
+    color: #ffffff;
+  }
+
+  .sidebarLyrics {
+    color: #b3b3b3;
+    font-size: 0.875rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .sidebarLyricsCollapsed {
+    max-height: 150px;
+    overflow: hidden;
+  }
+
+  .sidebarLyricsCollapsed::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, rgba(18, 18, 18, 0.9), #121212);
+    pointer-events: none;
+  }
+
+  .reelsContainer {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .sidebarPlaceholder {
+    color: #666666;
+    font-size: 0.875rem;
+    font-style: italic;
+    margin: 0;
+    margin-top: 1rem;
+  }
+
+  .sidebarAbout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sidebarAboutText {
+    color: #b3b3b3;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .sidebarAboutDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: #b3b3b3;
+    font-size: 0.875rem;
+  }
+
+  .sidebarAboutDetails p {
+    margin: 0;
+  }
+
+  .sidebarAboutDetails strong {
+    color: #ffffff;
+  }
+
+  /* Shift main content to the right on desktop */
+  .mainContent {
+    margin-left: 350px;
+  }
+
+  .stickyHeaderContent {
+    padding: 1.5rem 3rem;
+  }
+
+  .heroHeader {
+    height: 70vh;
+  }
+
+  .headerContent {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .title {
+    font-size: 6rem;
+  }
+
+  .content {
+    padding: 3rem;
+  }
+
+  /* Hide modal on desktop (sidebar is always visible) */
+  .footerPlayer {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  /* Keep controls clickable */
+  .footerControls {
+    pointer-events: auto;
+  }
+}

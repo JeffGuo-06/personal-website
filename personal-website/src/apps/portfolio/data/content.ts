@@ -168,13 +168,43 @@ export const otherProjects: Project[] = [
   // Add more projects here...
 ];
 
+// Portfolio Projects Data
+export const portfolioProjects: Project[] = [
+  {
+    title: 'The Boards',
+    tech: ['React Native', 'Expo', 'Supabase'],
+    description: 'A shared leaderboard IOS app designed for friend groups.',
+    codeLink: 'https://github.com/JeffGuo-06/the-boards',
+    demoLink: 'https://theboards.app',
+    imageType: 'iphone',
+    imageSrc: '/assets/boards-demo.png',
+  },
+  {
+    title: 'IMitate',
+    tech: ['React', 'Vercel', 'Next.js'],
+    description: 'A patient simulator for health students to practice otherwise costly internal medicine (IM) diagnoses.',
+    codeLink: 'https://github.com/liyuxiao2/IMitate',
+    demoLink: 'https://imitate-medical-sim.vercel.app/',
+    imageType: 'standard',
+    imageSrc: '/assets/imitate-demo.png',
+  },
+  {
+    title: 'SHOUT',
+    tech: ['Swift', 'AudioShake'],
+    description: 'An AI voice removal app, that is marketed towards concert goers who want clean concert videos.',
+    demoLink: 'https://guojeff.com/shout',
+    imageType: 'iphone',
+    imageSrc: '/assets/shout-demo.png',
+  },
+];
+
 // Page Content
 export const pageContent = {
   intro: {
     name: 'JEFFGUO.md',
     role: 'Full Slack Developer',
     location: 'Toronto, ON',
-    description: `If you're an employer, you're on the wrong page. This is my shitpostfolio.`
+    description: `Let's make coding cool again. (it never was)`
   },
   sections: {
     games: {
@@ -196,6 +226,31 @@ export const pageContent = {
   },
   socials: {
     instagram: 'https://www.instagram.com/jeffguo.md',
+    github: 'https://github.com/JeffGuo-06',
+    linkedin: 'https://www.linkedin.com/in/jeff-guo-a87054303/',
+    email: 'jeffguo.06@gmail.com',
+  },
+};
+
+// Portfolio Page Content (for the business/professional portfolio)
+export const portfolioContent = {
+  intro: {
+    name: 'Jeff Guo',
+    role: 'Full Stack Developer',
+    location: 'Toronto, ON',
+    description: "I'm a full stack developer specializing in creating intuitive and reliable mobile apps."
+  },
+  sections: {
+    projects: {
+      title: 'Projects',
+      subtitle: 'Driven by the desire to build cool things for my friends to use, here are a few highlights.',
+    },
+  },
+  cta: {
+    title: "Let's make it happen",
+    description: 'Ready to bring your next project to life? Let\'s connect and create something amazing together.',
+  },
+  socials: {
     github: 'https://github.com/JeffGuo-06',
     linkedin: 'https://www.linkedin.com/in/jeff-guo-a87054303/',
     email: 'jeffguo.06@gmail.com',
