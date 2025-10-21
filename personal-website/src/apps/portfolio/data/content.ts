@@ -14,12 +14,22 @@ export interface Song {
 
 export interface Project {
   title: string;
+  subtitle?: string;
   tech: string[];
   description: string;
   codeLink?: string;
   demoLink: string;
   imageType: 'standard' | 'iphone';
   imageSrc: string;
+}
+
+export interface UpcomingItem {
+  type: 'song' | 'project';
+  title: string;
+  subtitle?: string;
+  description: string;
+  releaseInfo: string; // e.g., "Coming Soon", "Q1 2025", etc.
+  imageSrc?: string;
 }
 
 // Music Data
@@ -124,6 +134,7 @@ get ur linkedin on
 export const gamesProjects: Project[] = [
     {
     title: 'Property Higher or Lower?',
+    subtitle: 'Guess which GTA property costs more',
     tech: ['Selenium','Node'],
     description:
       "Housing is cooked rn, and I made a game out of it. Guess which property in the GTA costs more.",
@@ -134,6 +145,7 @@ export const gamesProjects: Project[] = [
   },
   {
     title: 'Nailongify',
+    subtitle: 'Face filter game with leaderboards',
     tech: ['If life was a highway,', "I'd wanna ride it", 'All Nailong'],
     description:
       "Use your camera to turn yourself into Nailong, hold each nailong face to unlock them, try to unlock all 8 in the fastest time. Also there's a leaderboard because, it's fun.",
@@ -149,6 +161,7 @@ export const gamesProjects: Project[] = [
 export const otherProjects: Project[] = [
   {
     title: 'The Boards',
+    subtitle: 'Shared leaderboards for friend groups',
     tech: ['React Native', 'Expo', 'Supabase'],
     description: 'A shared leaderboard IOS app designed for friend groups. Make leaderboards out of anything, basketball, pickleball, whatever he ball, shibal.',
     codeLink: 'https://github.com/JeffGuo-06/the-boards',
@@ -158,6 +171,7 @@ export const otherProjects: Project[] = [
   },
   {
     title: 'SHOUT',
+    subtitle: 'AI voice removal for concert videos',
     tech: ['Swift', 'AudioShake'],
     description:
       'We all wanna scream at concerts, but how tf am I meant to post a nonchalant story if I\'m screaming. \n  I\'m building an app to remove your own voice from concert videos, join the waitlist if you want me to hurry.',
@@ -168,13 +182,76 @@ export const otherProjects: Project[] = [
   // Add more projects here...
 ];
 
+// Upcoming Content Data
+export const upcomingContent: UpcomingItem[] = [
+  {
+    type: 'song',
+    title: 'JSON',
+    subtitle: 'Coming Soon',
+    description: 'JSON, JSON, JSON, JSON',
+    releaseInfo: 'Lyrics basically done',
+  },
+  {
+    type: 'song',
+    title: 'KEΣN',
+    subtitle: 'In Development',
+    description: 'keen·er /ˈkēnər/ : noun, a person who is extremely, eager, zealous and enthusiastic. "keeners keeners who spent most of high school buried in homework"',
+    releaseInfo: 'One verse and a chorus',
+  },
+  // Add more upcoming items here...
+];
+
+// Portfolio Projects Data
+export const portfolioProjects: Project[] = [
+  {
+    title: 'The Boards',
+    tech: ['React Native', 'Expo', 'Supabase'],
+    description: 'A shared leaderboard IOS app designed for friend groups.',
+    codeLink: 'https://github.com/JeffGuo-06/the-boards',
+    demoLink: 'https://theboards.app',
+    imageType: 'iphone',
+    imageSrc: '/assets/boards-demo.png',
+  },
+  {
+    title: 'IMitate',
+    tech: ['React', 'Vercel', 'Next.js'],
+    description: 'A patient simulator for health students to practice otherwise costly internal medicine (IM) diagnoses.',
+    codeLink: 'https://github.com/liyuxiao2/IMitate',
+    demoLink: 'https://imitate-medical-sim.vercel.app/',
+    imageType: 'standard',
+    imageSrc: '/assets/imitate-demo.png',
+  },
+  {
+    title: 'SHOUT',
+    tech: ['Swift', 'AudioShake'],
+    description: 'An AI voice removal app, that is marketed towards concert goers who want clean concert videos.',
+    demoLink: 'https://guojeff.com/shout',
+    imageType: 'iphone',
+    imageSrc: '/assets/shout-demo.png',
+  },
+];
+
 // Page Content
 export const pageContent = {
   intro: {
     name: 'JEFFGUO.md',
     role: 'Full Slack Developer',
     location: 'Toronto, ON',
-    description: `If you're an employer, you're on the wrong page. This is my shitpostfolio.`
+    description: `Let's make coding cool again. (it never was)`
+  },
+  about: {
+    image: '/assets/jeff-about.jpg',
+    ranking: '#1 Techrot Rapper Songwriter',
+    name: 'JEFFGUO.md',
+    verified: true,
+    stats: 'Full Slack Developer',
+    bio: `Hey I'm Jeff! You probably know me from my prompting reel, I hope you liked it
+
+These days, I just wanna create whatever I want, build whatever I want and not think about making money or padding my resume. 
+Thank you all for letting me do that.
+
+Also, even though I write about how much of a prompter I am, the songs are all handwritten, all the songs are off the dome. Honestly, it feels like such a breath of fresh air to make something by hand. (I do ask Claude to give me a tech word bank though).`,
+    isFollowing: false,
   },
   sections: {
     games: {
@@ -196,6 +273,31 @@ export const pageContent = {
   },
   socials: {
     instagram: 'https://www.instagram.com/jeffguo.md',
+    github: 'https://github.com/JeffGuo-06',
+    linkedin: 'https://www.linkedin.com/in/jeff-guo-a87054303/',
+    email: 'jeffguo.06@gmail.com',
+  },
+};
+
+// Portfolio Page Content (for the business/professional portfolio)
+export const portfolioContent = {
+  intro: {
+    name: 'Jeff Guo',
+    role: 'Full Stack Developer',
+    location: 'Toronto, ON',
+    description: "I'm a full stack developer specializing in creating intuitive and reliable mobile apps."
+  },
+  sections: {
+    projects: {
+      title: 'Projects',
+      subtitle: 'Driven by the desire to build cool things for my friends to use, here are a few highlights.',
+    },
+  },
+  cta: {
+    title: "Let's make it happen",
+    description: 'Ready to bring your next project to life? Let\'s connect and create something amazing together.',
+  },
+  socials: {
     github: 'https://github.com/JeffGuo-06',
     linkedin: 'https://www.linkedin.com/in/jeff-guo-a87054303/',
     email: 'jeffguo.06@gmail.com',

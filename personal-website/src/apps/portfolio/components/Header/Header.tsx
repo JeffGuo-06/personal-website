@@ -5,11 +5,8 @@ import './Header.css';
 import { Box } from '@/shared/components/layout/Box';
 import { Flex } from '@/shared/components/layout/Flex';
 import { Button } from '@/shared/components/ui/Button';
-import { useHeadroom } from '@/shared/hooks';
 
 export function Header() {
-  const pinned = useHeadroom({ fixedAt: 120 });
-
   return (
     <Box
       style={{
@@ -20,8 +17,6 @@ export function Header() {
         padding: 'var(--theme-spacing-xs)',
         height: 60,
         zIndex: 1,
-        transform: `translate3d(0, ${pinned ? 0 : '-110px'}, 0)`,
-        transition: 'transform 400ms ease',
         backgroundColor: 'rgba(70, 70, 70, 0.010)',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',

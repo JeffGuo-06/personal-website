@@ -1,18 +1,23 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { HomePage } from './apps/portfolio/pages/Home.page';
-import { WorkingOnIt } from './apps/portfolio/pages/WorkingOnIt.page';
 import { ShoutPage } from './apps/shout/pages/Shout.page';
 import { FunPage } from './apps/portfolio/pages/Fun.page';
 import { MusicPlayerPage } from './apps/portfolio/pages/MusicPlayer.page';
+import { ArtistPage } from './apps/portfolio/pages/Artist.page';
+import { AuthProvider } from './apps/portfolio/contexts/AuthContext';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <HomePage />,
+    element: (
+      <AuthProvider>
+        <ArtistPage />
+      </AuthProvider>
+    ),
   },
   {
-    path: '/working-on-it',
-    element: <WorkingOnIt />,
+    path: '/portfolio',
+    element: <HomePage />,
   },
   {
     path: '/shout',

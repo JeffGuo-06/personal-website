@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { IconArrowLeft, IconPlayerPauseFilled, IconPlayerPlayFilled, IconChevronDown } from '@tabler/icons-react';
+import { IconArrowLeft, IconPlayerPauseFilled, IconPlayerPlayFilled, IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import { Text } from '@/shared/components/ui/Text';
 import { Title } from '@/shared/components/ui/Title';
 import classes from './MusicPlayer.module.css';
@@ -31,6 +31,7 @@ export function MusicPlayerModal({
   const [duration, setDuration] = useState(0);
   const [isSeeking, setIsSeeking] = useState(false);
   const [volumeBeforeSeeking, setVolumeBeforeSeeking] = useState(1);
+  const [lyricsExpanded, setLyricsExpanded] = useState(false);
   const lyricsRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -155,28 +156,45 @@ export function MusicPlayerModal({
           </button>
         </div>
 
-        {/* Lyrics chevron button */}
-        {lyrics && (
-          <button onClick={scrollToLyricsSection} className={classes.lyricsChevron}>
-            <IconChevronDown size={20} />
-            <Text className={classes.lyricsChevronText}>Lyrics</Text>
-          </button>
-        )}
-
         {/* Lyrics section */}
         {lyrics && (
-          <div ref={lyricsRef} className={classes.lyricsSection}>
-            <Title order={3} className={classes.lyricsTitle}>Lyrics</Title>
-            <Text className={classes.lyricsText}>
-              {lyrics.split('\n').map((line, index) => (
-                <React.Fragment key={index}>
-                  {line}
-                  {index < lyrics.split('\n').length - 1 && <br />}
-                </React.Fragment>
-              ))}
-            </Text>
+          <div className={classes.modalSection}>
+            <div className={classes.modalLyricsContainer}>
+              <div className={classes.modalLyricsHeader}>
+                <Title order={3} className={classes.modalSectionTitle}>Lyrics</Title>
+                <button
+                  className={classes.modalExpandButton}
+                  onClick={() => setLyricsExpanded(!lyricsExpanded)}
+                >
+                  {lyricsExpanded ? (
+                    <IconChevronDown size={20} />
+                  ) : (
+                    <IconChevronUp size={20} />
+                  )}
+                </button>
+              </div>
+              <div
+                ref={lyricsRef}
+                className={`${classes.modalLyrics} ${!lyricsExpanded ? classes.modalLyricsCollapsed : ''}`}
+              >
+                {lyrics.split('\n').map((line, index) => (
+                  <React.Fragment key={index}>
+                    {line}
+                    {index < lyrics.split('\n').length - 1 && <br />}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
           </div>
         )}
+
+        {/* Reels Section */}
+        <div className={classes.modalSection}>
+          <div className={classes.modalReelsContainer}>
+            <Title order={3} className={classes.modalSectionTitle}>Reels</Title>
+            <Text className={classes.modalPlaceholder}>No reels yet</Text>
+          </div>
+        </div>
       </div>
     </div>
   );

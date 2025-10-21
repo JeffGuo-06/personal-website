@@ -13,6 +13,7 @@ import { Group } from '@/shared/components/layout/Group';
 import { Text } from '@/shared/components/ui/Text';
 import { Title } from '@/shared/components/ui/Title';
 import { MusicPlayerModal } from './MusicPlayerModal';
+import { About } from '../components/About/About';
 import { songs, gamesProjects, otherProjects, pageContent, type Song } from '../data/content';
 import classes from './Fun.module.css';
 
@@ -342,7 +343,22 @@ export function FunPage() {
         </div>
       </div>
 
-      {/* Section 2: Games */}
+      {/* Section 2: About */}
+      <div id="about" className={classes.snapSection}>
+        <div className={classes.sectionContent}>
+          <About
+            image={pageContent.about.image}
+            ranking={pageContent.about.ranking}
+            name={pageContent.about.name}
+            verified={pageContent.about.verified}
+            stats={pageContent.about.stats}
+            bio={pageContent.about.bio}
+            isFollowing={pageContent.about.isFollowing}
+          />
+        </div>
+      </div>
+
+      {/* Section 3: Games */}
       <div id="games" className={classes.snapSection}>
         <div className={classes.sectionContent}>
           <div className={classes.sectionHeader}>
@@ -409,7 +425,7 @@ export function FunPage() {
         </div>
       </div>
 
-      {/* Section 3: Music */}
+      {/* Section 4: Music */}
       <div id="music" className={classes.snapSection}>
         <div className={classes.sectionContent}>
           <div className={classes.sectionHeader}>
@@ -439,7 +455,7 @@ export function FunPage() {
         </div>
       </div>
 
-      {/* Section 4: Other Projects */}
+      {/* Section 5: Other Projects */}
       <div id="other" className={classes.snapSection}>
         <div className={classes.sectionContent}>
           <div className={classes.sectionHeader}>
@@ -506,7 +522,7 @@ export function FunPage() {
         </div>
       </div>
 
-      {/* Section 5: Final CTA */}
+      {/* Section 6: Final CTA */}
       <div className={classes.snapSection}>
         <div className={classes.sectionContent}>
           <div className={classes.ctaSection}>
