@@ -186,14 +186,14 @@ export const otherProjects: Project[] = [
 export const upcomingContent: UpcomingItem[] = [
   {
     type: 'song',
-    title: 'New Track',
+    title: 'JSON',
     subtitle: 'Coming Soon',
     description: 'Working on something special...',
     releaseInfo: 'Coming Soon',
   },
   {
-    type: 'project',
-    title: 'Secret Project',
+    type: 'song',
+    title: '',
     subtitle: 'In Development',
     description: 'Building something cool for you all',
     releaseInfo: 'Q1 2025',
@@ -245,7 +245,12 @@ export const pageContent = {
     name: 'JEFFGUO.md',
     verified: true,
     stats: 'Full Slack Developer',
-    bio: 'A developer who builds things for friends and makes music on the side. Currently working on making coding cool again (it never was). Based in Toronto, always down to collaborate on fun projects.',
+    bio: `Hey I'm Jeff! You probably know me from my prompting reel, I hope you liked it
+
+These days, I just wanna create whatever I want, build whatever I want and not think about making money or padding my resume. 
+Thank you all for letting me do that.
+
+Also, even though I write about how much of a prompter I am, the songs are all handwritten, all the songs are off the dome. Honestly, it feels like such a breath of fresh air to make something by hand. (I do ask Claude to give me a tech word bank though).`,
     isFollowing: false,
   },
   sections: {

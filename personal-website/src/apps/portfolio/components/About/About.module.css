@@ -40,7 +40,7 @@
 }
 
 .name {
-  font-size: 48px;
+  font-size: clamp(24px, 6vw, 48px);
   font-weight: 700;
   margin: 0;
   line-height: 1.2;
@@ -97,6 +97,7 @@
   margin: 0;
   color: #ffffff;
   opacity: 0.95;
+  white-space: pre-line;
 }
 
 .seeMoreButton {
@@ -124,6 +125,26 @@
     font-size: 36px;
   }
 
+  .ranking {
+    font-size: 12px;
+  }
+
+  .stats {
+    font-size: 13px;
+  }
+
+  .bio {
+    font-size: 13px;
+  }
+
+  .bioText {
+    font-size: 13px;
+  }
+
+  .seeMoreButton {
+    font-size: 13px;
+  }
+
   .verifiedIcon {
     width: 24px;
     height: 24px;
@@ -141,6 +162,26 @@
 
   .name {
     font-size: 28px;
+  }
+
+  .ranking {
+    font-size: 11px;
+  }
+
+  .stats {
+    font-size: 12px;
+  }
+
+  .bio {
+    font-size: 12px;
+  }
+
+  .bioText {
+    font-size: 12px;
+  }
+
+  .seeMoreButton {
+    font-size: 12px;
   }
 
   .verifiedIcon {

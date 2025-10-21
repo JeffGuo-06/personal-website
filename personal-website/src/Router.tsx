@@ -4,6 +4,7 @@ import { ShoutPage } from './apps/shout/pages/Shout.page';
 import { FunPage } from './apps/portfolio/pages/Fun.page';
 import { MusicPlayerPage } from './apps/portfolio/pages/MusicPlayer.page';
 import { ArtistPage } from './apps/portfolio/pages/Artist.page';
+import { AuthProvider } from './apps/portfolio/contexts/AuthContext';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/artist',
-    element: <ArtistPage />,
+    element: (
+      <AuthProvider>
+        <ArtistPage />
+      </AuthProvider>
+    ),
   },
 ]);
 

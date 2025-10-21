@@ -1,0 +1,339 @@
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1rem;
+}
+
+.modalContent {
+  background: #1a1a1a;
+  border-radius: 16px;
+  max-width: 440px;
+  width: 100%;
+  position: relative;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.modalBody {
+  margin-top: 1rem;
+}
+
+/* Step Container */
+.stepContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.stepTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
+
+.stepDescription {
+  font-size: 0.95rem;
+  color: #aaa;
+  margin: -0.5rem 0 0;
+  text-align: center;
+}
+
+.backButton {
+  background: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  align-self: flex-start;
+  margin-bottom: -0.5rem;
+}
+
+.backButton:hover {
+  color: #fff;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ddd;
+}
+
+.input {
+  background: #2a2a2a;
+  border: 2px solid #333;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #1db954;
+  background: #1f1f1f;
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input::placeholder {
+  color: #666;
+}
+
+/* Code Input */
+.codeInputContainer {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.codeInput {
+  width: 3.25rem;
+  height: 4rem;
+  background: #2a2a2a;
+  border: 2px solid #333;
+  border-radius: 12px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  transition: all 0.2s;
+  font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+}
+
+.codeInput:focus {
+  outline: none;
+  border-color: #1db954;
+  background: #1f1f1f;
+  transform: scale(1.05);
+}
+
+.codeInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Profile Picture Section */
+.profilePictureSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profilePicturePreview {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #2a2a2a;
+  border: 3px solid #333;
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profilePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+}
+
+.fileInput {
+  display: none;
+}
+
+.uploadButtons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.uploadButton {
+  background: #2a2a2a;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.uploadButton:hover:not(:disabled) {
+  background: #333;
+  border-color: #444;
+}
+
+.uploadButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.optionalText {
+  font-size: 0.85rem;
+  color: #666;
+  margin: -0.5rem 0 0;
+}
+
+/* Buttons */
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.submitButton {
+  background: #1db954;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #1ed760;
+  transform: scale(1.02);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.skipButton {
+  background: transparent;
+  border: 2px solid #333;
+  border-radius: 12px;
+  padding: 0.875rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #aaa;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.skipButton:hover:not(:disabled) {
+  border-color: #444;
+  color: #fff;
+}
+
+.skipButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Error */
+.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  color: #ef4444;
+  margin: -0.5rem 0;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .modalContent {
+    padding: 1.5rem;
+  }
+
+  .stepTitle {
+    font-size: 1.5rem;
+  }
+
+  .codeInput {
+    width: 2.75rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+  }
+
+  .codeInputContainer {
+    gap: 0.35rem;
+  }
+}

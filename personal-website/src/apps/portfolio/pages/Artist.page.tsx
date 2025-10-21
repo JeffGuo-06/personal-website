@@ -1,8 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { IconPlayerPlayFilled, IconPlayerPauseFilled, IconChevronDown, IconChevronUp } from '@tabler/icons-react';
+import { IconPlayerPlayFilled, IconPlayerPauseFilled, IconChevronDown, IconChevronUp, IconUser } from '@tabler/icons-react';
 import { songs, type Song, pageContent, gamesProjects, otherProjects, upcomingContent, type UpcomingItem } from '../data/content';
 import { MusicPlayerModal } from './MusicPlayerModal';
 import { About } from '../components/About/About';
+import { AuthModal } from '../components/Auth/AuthModal';
+import { ProfileSidebar } from '../components/Auth/ProfileSidebar';
+import { useAuth } from '../contexts/AuthContext';
 import classes from './Artist.module.css';
 
 export function ArtistPage() {
@@ -12,7 +15,10 @@ export function ArtistPage() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPlayerModalOpen, setIsPlayerModalOpen] = useState(false);
   const [lyricsExpanded, setLyricsExpanded] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isProfileSidebarOpen, setIsProfileSidebarOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const { user, loading, login, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,8 +69,44 @@ export function ArtistPage() {
     setIsPlayerModalOpen(true);
   };
 
+  const handleProfileClick = () => {
+    if (user) {
+      setIsProfileSidebarOpen(true);
+    } else {
+      setIsAuthModalOpen(true);
+    }
+  };
+
+  const handleAuthSuccess = async (userId: string) => {
+    await login(userId);
+    setIsAuthModalOpen(false);
+    setIsProfileSidebarOpen(true);
+  };
+
+  const handleLogout = async () => {
+    await logout();
+    setIsProfileSidebarOpen(false);
+  };
+
   return (
     <div className={classes.artistPage}>
+      {/* Floating Profile Icon */}
+      {/* <button
+        className={classes.profileIconButton}
+        onClick={handleProfileClick}
+        aria-label={user ? 'Open profile' : 'Sign in'}
+      >
+        {user?.profile_picture_url ? (
+          <img
+            src={user.profile_picture_url}
+            alt={user.name}
+            className={classes.profileIconImage}
+          />
+        ) : (
+          <IconUser size={24} className={classes.profileIconPlaceholder} />
+        )}
+      </button> */}
+
       {/* Desktop Sidebar Player */}
       <aside className={classes.desktopSidebar}>
         {currentSong ? (
@@ -396,6 +438,23 @@ export function ArtistPage() {
           lyrics={currentSong.lyrics}
           onTogglePlayPause={togglePlayPause}
           onClose={() => setIsPlayerModalOpen(false)}
+        />
+      )}
+
+      {/* Auth Modal */}
+      {isAuthModalOpen && (
+        <AuthModal
+          onClose={() => setIsAuthModalOpen(false)}
+          onSuccess={handleAuthSuccess}
+        />
+      )}
+
+      {/* Profile Sidebar */}
+      {isProfileSidebarOpen && user && (
+        <ProfileSidebar
+          user={user}
+          onClose={() => setIsProfileSidebarOpen(false)}
+          onLogout={handleLogout}
         />
       )}
       </div>
