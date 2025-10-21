@@ -148,6 +148,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0 4px 12px rgba(255, 208, 0, 0.3);
+  order: 2; /* Mobile: comes last */
 }
 
 .primaryPlayButton:hover {
@@ -166,6 +167,8 @@
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
+  margin-left: auto; /* Mobile: pushes to right along with play button */
+  order: 1; /* Mobile: comes second */
 }
 
 .followButton:hover {
@@ -178,7 +181,7 @@
   gap: 0.75rem;
   flex-wrap: wrap;
   align-items: center;
-  margin-left: auto;
+  order: 0; /* Mobile: comes first */
 }
 
 .socialIcon {
@@ -279,13 +282,44 @@
 }
 
 .songRowActive {
-  background: rgba(255, 208, 0, 0.15);
-  border: 1px solid rgba(255, 208, 0, 0.3);
+  background: transparent;
+  border: none;
 }
 
 .songRowActive:hover {
-  background: rgba(255, 208, 0, 0.2);
-  border: 1px solid rgba(255, 208, 0, 0.4);
+  background: transparent;
+  border: none;
+}
+
+.songNumberContainer {
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.songNumber {
+  font-size: 0.875rem;
+  color: #b3b3b3;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.songPlayIcon {
+  position: absolute;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.songRow:hover .songNumber {
+  opacity: 0;
+}
+
+.songRow:hover .songPlayIcon {
+  opacity: 1;
 }
 
 .songCover {
@@ -317,6 +351,13 @@
 .songArtist {
   font-size: 0.875rem;
   color: #b3b3b3;
+}
+
+.songDuration {
+  font-size: 0.875rem;
+  color: #b3b3b3;
+  margin-left: auto;
+  flex-shrink: 0;
 }
 
 /* Playing Indicator with animated bars */
@@ -562,6 +603,21 @@
 
 /* Tablet and above */
 @media (min-width: 768px) {
+  /* Restore desktop social section layout */
+  .primaryPlayButton {
+    order: 0; /* Back to original position */
+  }
+
+  .followButton {
+    order: 0; /* Back to original position */
+    margin-left: 0; /* Remove auto margin */
+  }
+
+  .socialIcons {
+    order: 0; /* Back to original position */
+    margin-left: auto; /* Push to right on desktop */
+  }
+
   .stickyHeaderContent {
     padding: 1.25rem 2rem;
   }
@@ -676,6 +732,76 @@
     font-size: 1rem;
     color: #b3b3b3;
     margin: 0;
+  }
+
+  .sidebarTimeline {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .sidebarTimeText {
+    font-size: 0.75rem;
+    color: #b3b3b3;
+    font-weight: 600;
+    min-width: 35px;
+  }
+
+  .sidebarProgressBar {
+    flex: 1;
+    height: 4px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .sidebarProgressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffd000;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(255, 208, 0, 0.5);
+    transition: all 0.2s ease;
+    margin-top: -4px;
+  }
+
+  .sidebarProgressBar::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 2px 8px rgba(255, 208, 0, 0.6);
+  }
+
+  .sidebarProgressBar::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffd000;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(255, 208, 0, 0.5);
+    transition: all 0.2s ease;
+  }
+
+  .sidebarProgressBar::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 2px 8px rgba(255, 208, 0, 0.6);
+  }
+
+  .sidebarProgressBar::-webkit-slider-runnable-track {
+    background: rgba(255, 255, 255, 0.1);
+    height: 4px;
+    border-radius: 2px;
+  }
+
+  .sidebarProgressBar::-moz-range-track {
+    background: rgba(255, 255, 255, 0.1);
+    height: 4px;
+    border-radius: 2px;
   }
 
   .sidebarSection {
