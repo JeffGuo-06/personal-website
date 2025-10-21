@@ -23,11 +23,9 @@ export const About: React.FC<AboutProps> = ({
   isFollowing: initialFollowing,
   onFollowToggle,
 }) => {
-  const [isFollowing, setIsFollowing] = useState(initialFollowing);
   const [showFullBio, setShowFullBio] = useState(false);
 
   const handleFollowClick = () => {
-    setIsFollowing(!isFollowing);
     onFollowToggle?.();
   };
 
@@ -52,10 +50,10 @@ export const About: React.FC<AboutProps> = ({
         <div className={classes.stats}>{stats}</div>
 
         <button
-          className={`${classes.followButton} ${isFollowing ? classes.following : ''}`}
+          className={classes.followButton}
           onClick={handleFollowClick}
         >
-          {isFollowing ? 'Following' : 'Follow'}
+          Follow
         </button>
 
         <div className={classes.bio}>

@@ -23,6 +23,14 @@ export function ArtistPage() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const { user, loading, login, logout } = useAuth();
 
+  // Initial scroll position on mount
+  useEffect(() => {
+    // Scroll to position where title is at 2/3 of upper half (33vh from top)
+    // Hero header is 60vh, title at bottom, so scroll down by ~27vh
+    const scrollToPosition = window.innerHeight * 0.27;
+    window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -196,7 +204,7 @@ export function ArtistPage() {
               stats={pageContent.about.stats}
               bio={pageContent.about.bio}
               isFollowing={pageContent.about.isFollowing}
-              // onFollowToggle={handleFollowClick}
+              onFollowToggle={handleFollowClick}
             />
           </div>
         )}
@@ -425,7 +433,7 @@ export function ArtistPage() {
               stats={pageContent.about.stats}
               bio={pageContent.about.bio}
               isFollowing={pageContent.about.isFollowing}
-              // onFollowToggle={handleFollowClick}
+              onFollowToggle={handleFollowClick}
             />
           </section>
         </div>

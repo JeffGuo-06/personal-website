@@ -52,6 +52,7 @@
 
 .stickyHeaderContent {
   padding: 1rem 1.5rem;
+  text-align: center;
 }
 
 .stickyHeaderContent h2 {
@@ -265,34 +266,32 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 0.1rem 0.25rem;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  border: none;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .songRow:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }
 
 .songRowActive {
   background: rgba(255, 208, 0, 0.15);
-  border-color: rgba(255, 208, 0, 0.3);
+  border: 1px solid rgba(255, 208, 0, 0.3);
 }
 
 .songRowActive:hover {
   background: rgba(255, 208, 0, 0.2);
-  border-color: rgba(255, 208, 0, 0.4);
+  border: 1px solid rgba(255, 208, 0, 0.4);
 }
 
 .songCover {
   width: 56px;
   height: 56px;
-  border-radius: 6px;
+  border-radius: 4px;
   object-fit: cover;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   flex-shrink: 0;
@@ -368,25 +367,23 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 0.1rem 0.25rem;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  border: none;
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
 }
 
 .projectItem:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }
 
 .projectThumbnail {
   width: 80px;
   height: 80px;
-  border-radius: 8px;
+  border-radius: 4px;
   object-fit: cover;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   flex-shrink: 0;
