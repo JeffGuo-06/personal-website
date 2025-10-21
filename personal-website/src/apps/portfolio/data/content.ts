@@ -14,6 +14,7 @@ export interface Song {
 
 export interface Project {
   title: string;
+  subtitle?: string;
   tech: string[];
   description: string;
   codeLink?: string;
@@ -124,6 +125,7 @@ get ur linkedin on
 export const gamesProjects: Project[] = [
     {
     title: 'Property Higher or Lower?',
+    subtitle: 'Guess which GTA property costs more',
     tech: ['Selenium','Node'],
     description:
       "Housing is cooked rn, and I made a game out of it. Guess which property in the GTA costs more.",
@@ -134,6 +136,7 @@ export const gamesProjects: Project[] = [
   },
   {
     title: 'Nailongify',
+    subtitle: 'Face filter game with leaderboards',
     tech: ['If life was a highway,', "I'd wanna ride it", 'All Nailong'],
     description:
       "Use your camera to turn yourself into Nailong, hold each nailong face to unlock them, try to unlock all 8 in the fastest time. Also there's a leaderboard because, it's fun.",
@@ -149,6 +152,7 @@ export const gamesProjects: Project[] = [
 export const otherProjects: Project[] = [
   {
     title: 'The Boards',
+    subtitle: 'Shared leaderboards for friend groups',
     tech: ['React Native', 'Expo', 'Supabase'],
     description: 'A shared leaderboard IOS app designed for friend groups. Make leaderboards out of anything, basketball, pickleball, whatever he ball, shibal.',
     codeLink: 'https://github.com/JeffGuo-06/the-boards',
@@ -158,6 +162,7 @@ export const otherProjects: Project[] = [
   },
   {
     title: 'SHOUT',
+    subtitle: 'AI voice removal for concert videos',
     tech: ['Swift', 'AudioShake'],
     description:
       'We all wanna scream at concerts, but how tf am I meant to post a nonchalant story if I\'m screaming. \n  I\'m building an app to remove your own voice from concert videos, join the waitlist if you want me to hurry.',
@@ -205,6 +210,15 @@ export const pageContent = {
     role: 'Full Slack Developer',
     location: 'Toronto, ON',
     description: `Let's make coding cool again. (it never was)`
+  },
+  about: {
+    image: '/assets/jeffguo.jpg',
+    ranking: '#1 Techrot Rapper Songwriter',
+    name: 'JEFFGUO.md',
+    verified: true,
+    stats: 'Full Slack Developer',
+    bio: 'A developer who builds things for friends and makes music on the side. Currently working on making coding cool again (it never was). Based in Toronto, always down to collaborate on fun projects.',
+    isFollowing: false,
   },
   sections: {
     games: {

@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { IconPlayerPlayFilled, IconPlayerPauseFilled, IconChevronDown, IconChevronUp } from '@tabler/icons-react';
-import { songs, type Song, pageContent } from '../data/content';
+import { songs, type Song, pageContent, gamesProjects, otherProjects } from '../data/content';
 import { MusicPlayerModal } from './MusicPlayerModal';
+import { About } from '../components/About/About';
 import classes from './Artist.module.css';
 
 export function ArtistPage() {
@@ -252,17 +253,68 @@ export function ArtistPage() {
 
           <section className={classes.section}>
             <h2>Games</h2>
-            <p>Games content will go here</p>
+            <div className={classes.projectsList}>
+              {gamesProjects.map((game) => (
+                <a
+                  key={game.title}
+                  href={game.demoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={classes.projectItem}
+                >
+                  <img
+                    src={game.imageSrc}
+                    alt={game.title}
+                    className={classes.projectThumbnail}
+                  />
+                  <div className={classes.projectInfo}>
+                    <h3 className={classes.projectTitle}>{game.title}</h3>
+                    {game.subtitle && (
+                      <p className={classes.projectSubtitle}>{game.subtitle}</p>
+                    )}
+                  </div>
+                </a>
+              ))}
+            </div>
           </section>
 
           <section className={classes.section}>
             <h2>Projects</h2>
-            <p>Projects content will go here</p>
+            <div className={classes.projectsList}>
+              {otherProjects.map((project) => (
+                <a
+                  key={project.title}
+                  href={project.demoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={classes.projectItem}
+                >
+                  <img
+                    src={project.imageSrc}
+                    alt={project.title}
+                    className={classes.projectThumbnail}
+                  />
+                  <div className={classes.projectInfo}>
+                    <h3 className={classes.projectTitle}>{project.title}</h3>
+                    {project.subtitle && (
+                      <p className={classes.projectSubtitle}>{project.subtitle}</p>
+                    )}
+                  </div>
+                </a>
+              ))}
+            </div>
           </section>
 
           <section className={classes.section}>
-            <h2>About Me</h2>
-            <p>About me content will go here</p>
+            <About
+              image={pageContent.about.image}
+              ranking={pageContent.about.ranking}
+              name={pageContent.about.name}
+              verified={pageContent.about.verified}
+              stats={pageContent.about.stats}
+              bio={pageContent.about.bio}
+              isFollowing={pageContent.about.isFollowing}
+            />
           </section>
         </div>
       </div>

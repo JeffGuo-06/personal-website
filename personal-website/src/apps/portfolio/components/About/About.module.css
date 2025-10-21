@@ -1,0 +1,154 @@
+.aboutContainer {
+  background: linear-gradient(180deg, rgba(40, 40, 40, 1) 0%, rgba(18, 18, 18, 1) 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  color: white;
+}
+
+.heroImage {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.heroImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content {
+  padding: 24px;
+  position: relative;
+}
+
+.ranking {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.nameContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.verifiedIcon {
+  color: #3b82f6;
+  flex-shrink: 0;
+}
+
+.stats {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.followButton {
+  padding: 12px 32px;
+  border-radius: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.followButton:hover {
+  transform: scale(1.04);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.followButton.following {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.followButton.following:hover {
+  border-color: rgba(239, 68, 68, 0.8);
+  color: rgba(239, 68, 68, 1);
+}
+
+.bio {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.bioText {
+  margin: 0;
+  color: #ffffff;
+  opacity: 0.95;
+}
+
+.seeMoreButton {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.seeMoreButton:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .heroImage {
+    height: 240px;
+  }
+
+  .name {
+    font-size: 36px;
+  }
+
+  .verifiedIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroImage {
+    height: 200px;
+  }
+
+  .name {
+    font-size: 28px;
+  }
+
+  .verifiedIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .content {
+    padding: 16px;
+  }
+}

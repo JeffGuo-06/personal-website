@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(npm run typecheck)",
-      "Bash(dir /s \"C:\\Users\\jeffd\\ProjectsLaptop\\personal-website\\personal-website\\src\\apps\\portfolio\")"
+      "Bash(dir /s \"C:\\Users\\jeffd\\ProjectsLaptop\\personal-website\\personal-website\\src\\apps\\portfolio\")",
+      "Bash(dir /s /b \"C:\\Users\\jeffd\\ProjectsLaptop\\personal-website\\personal-website\\src\\apps\\portfolio\")",
+      "Bash(findstr /i \"\\.tsx$ \\.ts$ \\.css$ \\.jsx$ \\.js$\")"
     ],
     "deny": [],
     "ask": []
