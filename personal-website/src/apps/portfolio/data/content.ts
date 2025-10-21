@@ -188,15 +188,15 @@ export const upcomingContent: UpcomingItem[] = [
     type: 'song',
     title: 'JSON',
     subtitle: 'Coming Soon',
-    description: 'Working on something special...',
-    releaseInfo: 'Coming Soon',
+    description: 'JSON, JSON, JSON, JSON',
+    releaseInfo: 'Lyrics basically done',
   },
   {
     type: 'song',
-    title: '',
+    title: 'KEΣN',
     subtitle: 'In Development',
-    description: 'Building something cool for you all',
-    releaseInfo: 'Q1 2025',
+    description: 'keen·er /ˈkēnər/ : noun, a person who is extremely, eager, zealous and enthusiastic. "keeners keeners who spent most of high school buried in homework"',
+    releaseInfo: 'One verse and a chorus',
   },
   // Add more upcoming items here...
 ];
@@ -240,7 +240,7 @@ export const pageContent = {
     description: `Let's make coding cool again. (it never was)`
   },
   about: {
-    image: '/assets/jeffguo.jpg',
+    image: '/assets/jeff-about.jpg',
     ranking: '#1 Techrot Rapper Songwriter',
     name: 'JEFFGUO.md',
     verified: true,

@@ -9,6 +9,14 @@ import { AuthProvider } from './apps/portfolio/contexts/AuthContext';
 const router = createBrowserRouter([
   {
     path: '/',
+    element: (
+      <AuthProvider>
+        <ArtistPage />
+      </AuthProvider>
+    ),
+  },
+  {
+    path: '/portfolio',
     element: <HomePage />,
   },
   {
@@ -22,14 +30,6 @@ const router = createBrowserRouter([
   {
     path: '/music-player',
     element: <MusicPlayerPage />,
-  },
-  {
-    path: '/artist',
-    element: (
-      <AuthProvider>
-        <ArtistPage />
-      </AuthProvider>
-    ),
   },
 ]);
 

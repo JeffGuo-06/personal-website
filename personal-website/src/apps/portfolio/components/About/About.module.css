@@ -3,6 +3,7 @@
   border-radius: 12px;
   overflow: hidden;
   color: white;
+  container-type: inline-size;
 }
 
 .heroImage {
@@ -191,5 +192,17 @@
 
   .content {
     padding: 16px;
+  }
+}
+
+/* Container query for narrow widths (e.g., sidebar) */
+@container (max-width: 500px) {
+  .name {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  .verifiedIcon {
+    width: 20px;
+    height: 20px;
   }
 }

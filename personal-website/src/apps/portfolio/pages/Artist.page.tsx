@@ -5,6 +5,7 @@ import { MusicPlayerModal } from './MusicPlayerModal';
 import { About } from '../components/About/About';
 import { AuthModal } from '../components/Auth/AuthModal';
 import { ProfileSidebar } from '../components/Auth/ProfileSidebar';
+import { Snackbar } from '../components/Snackbar/Snackbar';
 import { useAuth } from '../contexts/AuthContext';
 import classes from './Artist.module.css';
 
@@ -17,6 +18,8 @@ export function ArtistPage() {
   const [lyricsExpanded, setLyricsExpanded] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isProfileSidebarOpen, setIsProfileSidebarOpen] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
   const audioRef = useRef<HTMLAudioElement>(null);
   const { user, loading, login, logout } = useAuth();
 
@@ -86,6 +89,11 @@ export function ArtistPage() {
   const handleLogout = async () => {
     await logout();
     setIsProfileSidebarOpen(false);
+  };
+
+  const handleFollowClick = () => {
+    setSnackbarMessage('follow feature on the way,\nstay tuned to claim your day one card');
+    setSnackbarOpen(true);
   };
 
   return (
@@ -174,6 +182,7 @@ export function ArtistPage() {
               stats={pageContent.about.stats}
               bio={pageContent.about.bio}
               isFollowing={pageContent.about.isFollowing}
+              // onFollowToggle={handleFollowClick}
             />
           </div>
         )}
@@ -208,7 +217,7 @@ export function ArtistPage() {
         <div className={classes.content}>
           {/* Social Media Section */}
           <section className={classes.socialSection}>
-            <button className={classes.followButton}>Follow</button>
+            <button className={classes.followButton} onClick={handleFollowClick}>Follow</button>
             <div className={classes.socialIcons}>
               <a
                 href="https://www.instagram.com/jeffguo.md"
@@ -254,11 +263,20 @@ export function ArtistPage() {
                 </svg>
                 <span>jeffgwoah</span>
               </a>
+              <a
+                href="mailto:jeffguo.06@gmail.com"
+                className={classes.socialIcon}
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span>jeffguo.06@gmail.com</span>
+              </a>
             </div>
           </section>
 
           {/* Music Section */}
-          <section className={classes.section}>
+          <section id="music" className={classes.section}>
             <h2>Music</h2>
             <div className={classes.songList}>
               {songs.map((song) => (
@@ -292,7 +310,7 @@ export function ArtistPage() {
             </div>
           </section>
 
-          <section className={classes.section}>
+          <section id="games" className={classes.section}>
             <h2>Games</h2>
             <div className={classes.projectsList}>
               {gamesProjects.map((game) => (
@@ -319,7 +337,7 @@ export function ArtistPage() {
             </div>
           </section>
 
-          <section className={classes.section}>
+          <section id="projects" className={classes.section}>
             <h2>Projects</h2>
             <div className={classes.projectsList}>
               {otherProjects.map((project) => (
@@ -346,7 +364,7 @@ export function ArtistPage() {
             </div>
           </section>
 
-          <section className={classes.section}>
+          <section id="upcoming" className={classes.section}>
             <h2>Upcoming</h2>
             <div className={classes.upcomingList}>
               {upcomingContent.map((item, index) => (
@@ -361,9 +379,6 @@ export function ArtistPage() {
                   <div className={classes.upcomingInfo}>
                     <div className={classes.upcomingHeader}>
                       <h3 className={classes.upcomingTitle}>{item.title}</h3>
-                      <span className={classes.upcomingType}>
-                        {item.type === 'song' ? '🎵' : '🚀'}
-                      </span>
                     </div>
                     {item.subtitle && (
                       <p className={classes.upcomingSubtitle}>{item.subtitle}</p>
@@ -376,7 +391,7 @@ export function ArtistPage() {
             </div>
           </section>
 
-          <section className={classes.section}>
+          <section id="about" className={classes.section}>
             <About
               image={pageContent.about.image}
               ranking={pageContent.about.ranking}
@@ -385,6 +400,7 @@ export function ArtistPage() {
               stats={pageContent.about.stats}
               bio={pageContent.about.bio}
               isFollowing={pageContent.about.isFollowing}
+              // onFollowToggle={handleFollowClick}
             />
           </section>
         </div>
@@ -457,6 +473,13 @@ export function ArtistPage() {
           onLogout={handleLogout}
         />
       )}
+
+      {/* Snackbar */}
+      <Snackbar
+        message={snackbarMessage}
+        isOpen={snackbarOpen}
+        onClose={() => setSnackbarOpen(false)}
+      />
       </div>
     </div>
   );
