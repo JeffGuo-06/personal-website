@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container } from '@/shared/components/layout/Container';
 import { Stack } from '@/shared/components/layout/Stack';
-import { Education } from '../components/Education/Education';
+// import { Education } from '../components/Education/Education';
 import { Header } from '../components/Header/Header';
 import { Portfolio } from '../components/Portfolio/Portfolio';
-import { Projects } from '../components/Projects/Projects';
+// import { Projects } from '../components/Projects/Projects';
 
 export function HomePage() {
   return (
