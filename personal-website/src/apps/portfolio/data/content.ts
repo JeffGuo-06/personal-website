@@ -23,6 +23,15 @@ export interface Project {
   imageSrc: string;
 }
 
+export interface UpcomingItem {
+  type: 'song' | 'project';
+  title: string;
+  subtitle?: string;
+  description: string;
+  releaseInfo: string; // e.g., "Coming Soon", "Q1 2025", etc.
+  imageSrc?: string;
+}
+
 // Music Data
 export const songs: Song[] = [
   {
@@ -171,6 +180,25 @@ export const otherProjects: Project[] = [
     imageSrc: '/assets/shout-demo.png',
   },
   // Add more projects here...
+];
+
+// Upcoming Content Data
+export const upcomingContent: UpcomingItem[] = [
+  {
+    type: 'song',
+    title: 'New Track',
+    subtitle: 'Coming Soon',
+    description: 'Working on something special...',
+    releaseInfo: 'Coming Soon',
+  },
+  {
+    type: 'project',
+    title: 'Secret Project',
+    subtitle: 'In Development',
+    description: 'Building something cool for you all',
+    releaseInfo: 'Q1 2025',
+  },
+  // Add more upcoming items here...
 ];
 
 // Portfolio Projects Data

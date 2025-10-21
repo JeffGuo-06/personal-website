@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { IconPlayerPlayFilled, IconPlayerPauseFilled, IconChevronDown, IconChevronUp } from '@tabler/icons-react';
-import { songs, type Song, pageContent, gamesProjects, otherProjects } from '../data/content';
+import { songs, type Song, pageContent, gamesProjects, otherProjects, upcomingContent, type UpcomingItem } from '../data/content';
 import { MusicPlayerModal } from './MusicPlayerModal';
 import { About } from '../components/About/About';
 import classes from './Artist.module.css';
@@ -123,17 +123,16 @@ export function ArtistPage() {
           </div>
         ) : (
           <div className={classes.sidebarContent}>
-            {/* About Me Placeholder */}
-            <div className={classes.sidebarAbout}>
-              <h3 className={classes.sidebarTitle}>About Me</h3>
-              <p className={classes.sidebarAboutText}>
-                {pageContent.intro.description}
-              </p>
-              <div className={classes.sidebarAboutDetails}>
-                <p><strong>Role:</strong> {pageContent.intro.role}</p>
-                <p><strong>Location:</strong> {pageContent.intro.location}</p>
-              </div>
-            </div>
+            {/* About Section */}
+            <About
+              image={pageContent.about.image}
+              ranking={pageContent.about.ranking}
+              name={pageContent.about.name}
+              verified={pageContent.about.verified}
+              stats={pageContent.about.stats}
+              bio={pageContent.about.bio}
+              isFollowing={pageContent.about.isFollowing}
+            />
           </div>
         )}
       </aside>
@@ -301,6 +300,36 @@ export function ArtistPage() {
                     )}
                   </div>
                 </a>
+              ))}
+            </div>
+          </section>
+
+          <section className={classes.section}>
+            <h2>Upcoming</h2>
+            <div className={classes.upcomingList}>
+              {upcomingContent.map((item, index) => (
+                <div key={index} className={classes.upcomingItem}>
+                  {item.imageSrc && (
+                    <img
+                      src={item.imageSrc}
+                      alt={item.title}
+                      className={classes.upcomingThumbnail}
+                    />
+                  )}
+                  <div className={classes.upcomingInfo}>
+                    <div className={classes.upcomingHeader}>
+                      <h3 className={classes.upcomingTitle}>{item.title}</h3>
+                      <span className={classes.upcomingType}>
+                        {item.type === 'song' ? '🎵' : '🚀'}
+                      </span>
+                    </div>
+                    {item.subtitle && (
+                      <p className={classes.upcomingSubtitle}>{item.subtitle}</p>
+                    )}
+                    <p className={classes.upcomingDescription}>{item.description}</p>
+                    <span className={classes.upcomingRelease}>{item.releaseInfo}</span>
+                  </div>
+                </div>
               ))}
             </div>
           </section>
