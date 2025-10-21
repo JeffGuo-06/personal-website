@@ -96,6 +96,20 @@ export function ArtistPage() {
     setSnackbarOpen(true);
   };
 
+  const handlePlayFirstSong = () => {
+    const firstSong = songs[0];
+    if (!firstSong) return;
+
+    if (currentSong?.audioSrc === firstSong.audioSrc) {
+      // Toggle play/pause if first song is already loaded
+      setIsPlaying(!isPlaying);
+    } else {
+      // Play the first song
+      setCurrentSong(firstSong);
+      setIsPlaying(true);
+    }
+  };
+
   return (
     <div className={classes.artistPage}>
       {/* Floating Profile Icon */}
@@ -217,6 +231,17 @@ export function ArtistPage() {
         <div className={classes.content}>
           {/* Social Media Section */}
           <section className={classes.socialSection}>
+            <button
+              className={classes.primaryPlayButton}
+              onClick={handlePlayFirstSong}
+              aria-label={currentSong?.audioSrc === songs[0]?.audioSrc && isPlaying ? 'Pause' : 'Play'}
+            >
+              {currentSong?.audioSrc === songs[0]?.audioSrc && isPlaying ? (
+                <IconPlayerPauseFilled size={24} />
+              ) : (
+                <IconPlayerPlayFilled size={24} />
+              )}
+            </button>
             <button className={classes.followButton} onClick={handleFollowClick}>Follow</button>
             <div className={classes.socialIcons}>
               <a

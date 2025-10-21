@@ -121,6 +121,7 @@
 
 .content {
   padding: 1.5rem;
+  padding-bottom: 120px;
 }
 
 /* Social Section */
@@ -131,6 +132,26 @@
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.primaryPlayButton {
+  background: #ffd000;
+  color: #000000;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255, 208, 0, 0.3);
+}
+
+.primaryPlayButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(255, 208, 0, 0.4);
 }
 
 .followButton {
@@ -156,6 +177,7 @@
   gap: 0.75rem;
   flex-wrap: wrap;
   align-items: center;
+  margin-left: auto;
 }
 
 .socialIcon {
@@ -258,13 +280,13 @@
 }
 
 .songRowActive {
-  background: rgba(250, 204, 21, 0.15);
-  border-color: rgba(250, 204, 21, 0.3);
+  background: rgba(255, 208, 0, 0.15);
+  border-color: rgba(255, 208, 0, 0.3);
 }
 
 .songRowActive:hover {
-  background: rgba(250, 204, 21, 0.2);
-  border-color: rgba(250, 204, 21, 0.4);
+  background: rgba(255, 208, 0, 0.2);
+  border-color: rgba(255, 208, 0, 0.4);
 }
 
 .songCover {
@@ -290,7 +312,7 @@
 }
 
 .songRowActive .songTitle {
-  color: #fbbf24;
+  color: #ffd000;
 }
 
 .songArtist {
@@ -308,7 +330,7 @@
 
 .bar {
   width: 3px;
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  background: #ffd000;
   border-radius: 2px;
   animation: bounce 1s ease-in-out infinite;
 }
@@ -569,12 +591,9 @@
 
   .content {
     padding: 2rem;
+    padding-bottom: 120px;
     max-width: 1200px;
     margin: 0 auto;
-  }
-
-  .socialIcon span {
-    display: inline;
   }
 
   .section h2 {
@@ -588,6 +607,20 @@
   .navLink {
     font-size: 1rem;
     padding: 0.6rem 1.25rem;
+  }
+}
+
+/* Hide social icon text when it would wrap to two lines */
+@media (min-width: 768px) and (max-width: 1299px) {
+  .socialIcon span {
+    display: none !important;
+  }
+}
+
+/* Show social icon text when there's enough space (accounting for sidebar on desktop) */
+@media (min-width: 1300px) {
+  .socialIcon span {
+    display: inline;
   }
 }
 
@@ -615,6 +648,7 @@
 
   .sidebarContent {
     padding: 2rem;
+    padding-bottom: 120px;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -803,6 +837,7 @@
 
   .content {
     padding: 3rem;
+    padding-bottom: 120px;
   }
 
   .section {
