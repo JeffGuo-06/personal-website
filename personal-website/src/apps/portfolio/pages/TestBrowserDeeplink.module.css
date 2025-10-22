@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  padding-top: calc(2rem + 80px); /* Account for banner height */
 }
 
 .content {
@@ -25,6 +26,28 @@
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: #ffffff;
+}
+
+.devControls {
+  margin-bottom: 1.5rem;
+}
+
+.toggleButton {
+  background: rgba(255, 208, 0, 0.2);
+  border: 1px solid rgba(255, 208, 0, 0.4);
+  color: #ffd000;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggleButton:hover {
+  background: rgba(255, 208, 0, 0.3);
+  border-color: rgba(255, 208, 0, 0.6);
+  transform: translateY(-1px);
 }
 
 .browserInfo {
@@ -132,6 +155,22 @@
 
 .instructionsList li:last-child {
   margin-bottom: 0;
+}
+
+.instructionsList strong {
+  color: #ffd000;
+  font-weight: 600;
+}
+
+.alternativeSection {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.alternativeText {
+  font-size: 0.875rem;
+  color: #b3b3b3;
+  margin-bottom: 1rem;
 }
 
 .note {

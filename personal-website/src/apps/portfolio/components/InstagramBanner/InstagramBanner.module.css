@@ -1,0 +1,140 @@
+.banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.4s ease-out;
+  /* position: fixed already acts as positioning context for absolute children */
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  padding-right: 100px; /* Space for arrow */
+}
+
+.textSection {
+  flex: 1;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.instructions {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.instructions strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.arrowSection {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  width: 32px;
+  height: 32px;
+  color: #ffffff;
+  animation: bounce 2s ease-in-out infinite;
+  margin-right: 0;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Desktop - banner spans full width */
+@media (min-width: 1024px) {
+  .content {
+    padding-left: 370px; /* Offset content for sidebar, but banner stays full width */
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 0.875rem 1rem;
+    padding-right: 80px;
+  }
+
+  .title {
+    font-size: 0.9rem;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
+
+  .instructions {
+    font-size: 0.75rem;
+  }
+
+  .arrowSection {
+    top: 0.875rem;
+    right: 1rem;
+  }
+
+  .arrow {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 0.75rem 1rem;
+    padding-right: 70px;
+  }
+
+  .arrowSection {
+    top: 0.75rem;
+    right: 1rem;
+  }
+
+  .arrow {
+    width: 26px;
+    height: 26px;
+  }
+}

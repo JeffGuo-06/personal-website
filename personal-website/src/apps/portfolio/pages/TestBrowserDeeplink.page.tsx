@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { InstagramBanner } from '../components/InstagramBanner/InstagramBanner';
 import classes from './TestBrowserDeeplink.module.css';
 
 export function TestBrowserDeeplinkPage() {
   const [browserInfo, setBrowserInfo] = useState('');
   const [isInAppBrowser, setIsInAppBrowser] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
+  const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
     const userAgent = navigator.userAgent;
@@ -50,20 +52,15 @@ export function TestBrowserDeeplinkPage() {
 
     setBrowserInfo(`${browser} (${device})`);
     setIsInAppBrowser(inApp);
-  }, []);
 
-  const handleOpenBrowser = () => {
-    // Try multiple methods
-    const url = 'https://guojeff.com';
-
-    // Method 1: Try window.open
-    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-
-    // Method 2: If that fails, try location
-    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-      window.location.href = url;
+    // In development, show banner by default for testing
+    if (import.meta.env.DEV) {
+      setShowBanner(true);
+    } else {
+      // In production, only show if actually on Instagram
+      setShowBanner(inApp);
     }
-  };
+  }, []);
 
   const handleCopyLink = async () => {
     try {
@@ -77,57 +74,74 @@ export function TestBrowserDeeplinkPage() {
 
   return (
     <div className={classes.container}>
+      {/* Instagram Banner - shows in dev mode for testing */}
+      {showBanner && <InstagramBanner />}
+
       <div className={classes.content}>
         <div className={classes.topSection}>
           <h1 className={classes.title}>Browser Detection Test</h1>
+          {import.meta.env.DEV && (
+            <div className={classes.devControls}>
+              <button
+                onClick={() => setShowBanner(!showBanner)}
+                className={classes.toggleButton}
+              >
+                {showBanner ? 'Hide Banner' : 'Show Banner'}
+              </button>
+            </div>
+          )}
           <p className={classes.browserInfo}>You are in: <strong>{browserInfo}</strong></p>
           <p className={classes.userAgent}>User Agent: {navigator.userAgent}</p>
         </div>
 
         <div className={classes.bottomSection}>
-          <h2 className={classes.subtitle}>Open in Browser</h2>
-          <p className={classes.description}>
-            {isInAppBrowser
-              ? 'Use one of the methods below to open guojeff.com in your browser'
-              : 'Click the button below to open guojeff.com'}
-          </p>
+          {isInAppBrowser ? (
+            <>
+              <h2 className={classes.subtitle}>Open in Your Browser</h2>
+              <p className={classes.description}>
+                In-app browsers block external links. Follow these steps:
+              </p>
 
-          <div className={classes.buttonGroup}>
-            <button
-              onClick={handleOpenBrowser}
-              className={classes.deeplinkButton}
-            >
-              <span className={classes.buttonIcon}>🌐</span>
-              Try to Open guojeff.com
-            </button>
+              <div className={classes.instructions}>
+                <h3 className={classes.instructionsTitle}>How to Open in Browser:</h3>
+                <ol className={classes.instructionsList}>
+                  <li>Tap the <strong>menu icon</strong> (⋯ or •••) at the top or bottom</li>
+                  <li>Select <strong>"Open in Safari"</strong> or <strong>"Open in Browser"</strong></li>
+                  <li>The page will open in your default browser</li>
+                </ol>
+              </div>
 
-            <button
-              onClick={handleCopyLink}
-              className={classes.deeplinkButton}
-            >
-              <span className={classes.buttonIcon}>📋</span>
-              {copySuccess ? 'Copied!' : 'Copy Link'}
-            </button>
-          </div>
+              <div className={classes.alternativeSection}>
+                <p className={classes.alternativeText}>Or copy the link manually:</p>
+                <button
+                  onClick={handleCopyLink}
+                  className={classes.deeplinkButton}
+                >
+                  <span className={classes.buttonIcon}>📋</span>
+                  {copySuccess ? '✓ Copied!' : 'Copy guojeff.com'}
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <h2 className={classes.subtitle}>You're in a standard browser!</h2>
+              <p className={classes.description}>
+                No need for special instructions. Here's the link:
+              </p>
 
-          {isInAppBrowser && (
-            <div className={classes.instructions}>
-              <h3 className={classes.instructionsTitle}>Manual Instructions:</h3>
-              <ol className={classes.instructionsList}>
-                <li>Tap the menu icon (⋯ or •••) at the top or bottom of the screen</li>
-                <li>Look for "Open in Safari" or "Open in Browser"</li>
-                <li>Or copy the link above and paste it in your browser</li>
-              </ol>
-            </div>
+              <div className={classes.buttonGroup}>
+                <a
+                  href="https://guojeff.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={classes.deeplinkButton}
+                >
+                  <span className={classes.buttonIcon}>🌐</span>
+                  Open guojeff.com
+                </a>
+              </div>
+            </>
           )}
-
-          <div className={classes.note}>
-            <p>
-              {isInAppBrowser
-                ? 'In-app browsers often restrict external links. Use the menu or copy the link manually.'
-                : 'This will open guojeff.com in a new tab.'}
-            </p>
-          </div>
         </div>
       </div>
     </div>

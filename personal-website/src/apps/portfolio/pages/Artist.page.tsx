@@ -6,6 +6,7 @@ import { About } from '../components/About/About';
 import { AuthModal } from '../components/Auth/AuthModal';
 import { ProfileSidebar } from '../components/Auth/ProfileSidebar';
 import { Snackbar } from '../components/Snackbar/Snackbar';
+import { InstagramBanner } from '../components/InstagramBanner/InstagramBanner';
 import { useAuth } from '../contexts/AuthContext';
 import classes from './Artist.module.css';
 
@@ -22,8 +23,15 @@ export function ArtistPage() {
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [isInstagram, setIsInstagram] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const { user, loading, login, logout } = useAuth();
+
+  // Detect Instagram browser
+  useEffect(() => {
+    const userAgent = navigator.userAgent;
+    setIsInstagram(/Instagram/.test(userAgent));
+  }, []);
 
   // Initial scroll position on mount
   useEffect(() => {
@@ -164,6 +172,9 @@ export function ArtistPage() {
 
   return (
     <div className={classes.artistPage}>
+      {/* Instagram Banner */}
+      {isInstagram && <InstagramBanner />}
+
       {/* Floating Profile Icon */}
       {/* <button
         className={classes.profileIconButton}
