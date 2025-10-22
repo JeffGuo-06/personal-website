@@ -3,24 +3,33 @@ import classes from './TestBrowserDeeplink.module.css';
 
 export function TestBrowserDeeplinkPage() {
   const [browserInfo, setBrowserInfo] = useState('');
+  const [isInAppBrowser, setIsInAppBrowser] = useState(false);
+  const [copySuccess, setCopySuccess] = useState(false);
 
   useEffect(() => {
     const userAgent = navigator.userAgent;
     let browser = 'Unknown Browser';
+    let inApp = false;
 
     // Check for in-app browsers first
     if (/Instagram/.test(userAgent)) {
       browser = 'Instagram In-App Browser';
+      inApp = true;
     } else if (/FBAN|FBAV/.test(userAgent)) {
       browser = 'Facebook In-App Browser';
+      inApp = true;
     } else if (/TikTok/.test(userAgent)) {
       browser = 'TikTok In-App Browser';
+      inApp = true;
     } else if (/Twitter/.test(userAgent)) {
       browser = 'Twitter In-App Browser';
+      inApp = true;
     } else if (/Line/.test(userAgent)) {
       browser = 'Line In-App Browser';
+      inApp = true;
     } else if (/Snapchat/.test(userAgent)) {
       browser = 'Snapchat In-App Browser';
+      inApp = true;
     }
     // Then check standard browsers
     else if (/Chrome/.test(userAgent) && !/Edg/.test(userAgent)) {
@@ -40,7 +49,31 @@ export function TestBrowserDeeplinkPage() {
     const device = isMobile ? 'Mobile' : 'Desktop';
 
     setBrowserInfo(`${browser} (${device})`);
+    setIsInAppBrowser(inApp);
   }, []);
+
+  const handleOpenBrowser = () => {
+    // Try multiple methods
+    const url = 'https://guojeff.com';
+
+    // Method 1: Try window.open
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+
+    // Method 2: If that fails, try location
+    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+      window.location.href = url;
+    }
+  };
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText('https://guojeff.com');
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
 
   return (
     <div className={classes.container}>
@@ -54,23 +87,46 @@ export function TestBrowserDeeplinkPage() {
         <div className={classes.bottomSection}>
           <h2 className={classes.subtitle}>Open in Browser</h2>
           <p className={classes.description}>
-            Tap the button below to open guojeff.com in your browser
+            {isInAppBrowser
+              ? 'Use one of the methods below to open guojeff.com in your browser'
+              : 'Click the button below to open guojeff.com'}
           </p>
 
           <div className={classes.buttonGroup}>
-            <a
-              href="https://guojeff.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={handleOpenBrowser}
               className={classes.deeplinkButton}
             >
               <span className={classes.buttonIcon}>🌐</span>
-              Open guojeff.com
-            </a>
+              Try to Open guojeff.com
+            </button>
+
+            <button
+              onClick={handleCopyLink}
+              className={classes.deeplinkButton}
+            >
+              <span className={classes.buttonIcon}>📋</span>
+              {copySuccess ? 'Copied!' : 'Copy Link'}
+            </button>
           </div>
 
+          {isInAppBrowser && (
+            <div className={classes.instructions}>
+              <h3 className={classes.instructionsTitle}>Manual Instructions:</h3>
+              <ol className={classes.instructionsList}>
+                <li>Tap the menu icon (⋯ or •••) at the top or bottom of the screen</li>
+                <li>Look for "Open in Safari" or "Open in Browser"</li>
+                <li>Or copy the link above and paste it in your browser</li>
+              </ol>
+            </div>
+          )}
+
           <div className={classes.note}>
-            <p>If you're in an in-app browser (Instagram, Facebook, etc.), this will open in your default browser or show you the option to do so.</p>
+            <p>
+              {isInAppBrowser
+                ? 'In-app browsers often restrict external links. Use the menu or copy the link manually.'
+                : 'This will open guojeff.com in a new tab.'}
+            </p>
           </div>
         </div>
       </div>
