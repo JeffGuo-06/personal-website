@@ -20,6 +20,8 @@ export function ArtistPage() {
   const [isProfileSidebarOpen, setIsProfileSidebarOpen] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
   const { user, loading, login, logout } = useAuth();
 
@@ -56,6 +58,33 @@ export function ArtistPage() {
       audioRef.current.pause();
     }
   }, [isPlaying, currentSong]);
+
+  // Track audio time and duration
+  useEffect(() => {
+    if (!audioRef.current) return;
+
+    const audio = audioRef.current;
+
+    const handleLoadedMetadata = () => {
+      setDuration(audio.duration);
+    };
+
+    const handleTimeUpdate = () => {
+      setCurrentTime(audio.currentTime);
+    };
+
+    audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+    audio.addEventListener('timeupdate', handleTimeUpdate);
+
+    // Set initial values
+    setDuration(audio.duration || 0);
+    setCurrentTime(audio.currentTime || 0);
+
+    return () => {
+      audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      audio.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, [currentSong]);
 
   const handleSongClick = (song: Song) => {
     if (currentSong?.audioSrc === song.audioSrc) {
@@ -118,6 +147,21 @@ export function ArtistPage() {
     }
   };
 
+  const formatTime = (time: number) => {
+    if (isNaN(time)) return '0:00';
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newTime = parseFloat(e.target.value);
+    setCurrentTime(newTime);
+    if (audioRef.current) {
+      audioRef.current.currentTime = newTime;
+    }
+  };
+
   return (
     <div className={classes.artistPage}>
       {/* Floating Profile Icon */}
@@ -152,6 +196,20 @@ export function ArtistPage() {
             <div className={classes.sidebarSongInfo}>
               <h3 className={classes.sidebarTitle}>{currentSong.title}</h3>
               <p className={classes.sidebarArtist}>{currentSong.artist}</p>
+            </div>
+
+            {/* Timeline */}
+            <div className={classes.sidebarTimeline}>
+              <span className={classes.sidebarTimeText}>{formatTime(currentTime)}</span>
+              <input
+                type="range"
+                min="0"
+                max={duration || 0}
+                value={currentTime}
+                onChange={handleSeek}
+                className={classes.sidebarProgressBar}
+              />
+              <span className={classes.sidebarTimeText}>{formatTime(duration)}</span>
             </div>
 
             {/* Lyrics Section */}
@@ -312,7 +370,7 @@ export function ArtistPage() {
           <section id="music" className={classes.section}>
             <h2>Music</h2>
             <div className={classes.songList}>
-              {songs.map((song) => (
+              {songs.map((song, index) => (
                 <div
                   key={song.audioSrc}
                   className={`${classes.songRow} ${
@@ -322,22 +380,32 @@ export function ArtistPage() {
                   }`}
                   onClick={() => handleSongClick(song)}
                 >
+                  <div className={classes.songNumberContainer}>
+                    {currentSong?.audioSrc === song.audioSrc && isPlaying ? (
+                      <div className={classes.playingIndicator}>
+                        <div className={classes.bar}></div>
+                        <div className={classes.bar}></div>
+                        <div className={classes.bar}></div>
+                      </div>
+                    ) : (
+                      <>
+                        <span className={classes.songNumber}>{index + 1}</span>
+                        <IconPlayerPlayFilled className={classes.songPlayIcon} size={16} />
+                      </>
+                    )}
+                  </div>
                   <img
                     src={song.coverImage}
                     alt={`${song.title} cover`}
                     className={classes.songCover}
                   />
-                  {currentSong?.audioSrc === song.audioSrc && isPlaying && (
-                    <div className={classes.playingIndicator}>
-                      <div className={classes.bar}></div>
-                      <div className={classes.bar}></div>
-                      <div className={classes.bar}></div>
-                    </div>
-                  )}
                   <div className={classes.songInfo}>
                     <span className={classes.songTitle}>{song.title}</span>
                     <span className={classes.songArtist}>{song.artist}</span>
                   </div>
+                  <span className={classes.songDuration}>
+                    {currentSong?.audioSrc === song.audioSrc && duration ? formatTime(duration) : ''}
+                  </span>
                 </div>
               ))}
             </div>

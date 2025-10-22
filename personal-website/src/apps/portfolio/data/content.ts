@@ -195,7 +195,7 @@ export const upcomingContent: UpcomingItem[] = [
     type: 'song',
     title: 'KEΣN',
     subtitle: 'In Development',
-    description: 'keen·er /ˈkēnər/ : noun, a person who is extremely, eager, zealous and enthusiastic. "keeners keeners who spent most of high school buried in homework"',
+    description: 'keen·er /ˈkēnər/ : noun, a person who is extremely, eager, zealous and enthusiastic. "keeners who spent most of high school buried in homework"',
     releaseInfo: 'One verse and a chorus',
   },
   // Add more upcoming items here...
@@ -248,9 +248,7 @@ export const pageContent = {
     bio: `Hey I'm Jeff! You probably know me from my prompting reel, I hope you liked it
 
 These days, I just wanna create whatever I want, build whatever I want and not think about making money or padding my resume. 
-Thank you all for letting me do that.
-
-Also, even though I write about how much of a prompter I am, the songs are all handwritten, all the songs are off the dome. Honestly, it feels like such a breath of fresh air to make something by hand. (I do ask Claude to give me a tech word bank though).`,
+Thank you all for letting me do that.`,
     isFollowing: false,
   },
   sections: {
