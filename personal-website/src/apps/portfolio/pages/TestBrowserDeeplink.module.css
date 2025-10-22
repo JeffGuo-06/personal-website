@@ -103,6 +103,37 @@
   font-size: 1.5rem;
 }
 
+.instructions {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.instructionsTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.instructionsList {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #b3b3b3;
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+.instructionsList li {
+  margin-bottom: 0.5rem;
+}
+
+.instructionsList li:last-child {
+  margin-bottom: 0;
+}
+
 .note {
   background: rgba(255, 208, 0, 0.1);
   border: 1px solid rgba(255, 208, 0, 0.3);
