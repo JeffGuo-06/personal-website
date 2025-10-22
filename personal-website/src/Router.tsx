@@ -4,6 +4,7 @@ import { ShoutPage } from './apps/shout/pages/Shout.page';
 import { FunPage } from './apps/portfolio/pages/Fun.page';
 import { MusicPlayerPage } from './apps/portfolio/pages/MusicPlayer.page';
 import { ArtistPage } from './apps/portfolio/pages/Artist.page';
+import { TestBrowserDeeplinkPage } from './apps/portfolio/pages/TestBrowserDeeplink.page';
 import { AuthProvider } from './apps/portfolio/contexts/AuthContext';
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: '/music-player',
     element: <MusicPlayerPage />,
+  },
+  {
+    path: '/test-browser-deeplink',
+    element: <TestBrowserDeeplinkPage />,
   },
 ]);
 
