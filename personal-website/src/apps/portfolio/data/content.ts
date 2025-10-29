@@ -271,8 +271,8 @@ Thank you all for letting me do that.`,
   },
   socials: {
     instagram: 'https://www.instagram.com/jeffguo.md',
-    github: 'https://github.com/JeffGuo-06',
-    linkedin: 'https://www.linkedin.com/in/jeff-guo-a87054303/',
+    github: 'https://github.com/JEFFGUOmd',
+    linkedin: 'https://www.linkedin.com/in/guo-jeff',
     email: 'jeffguo.06@gmail.com',
   },
 };
@@ -297,7 +297,7 @@ export const portfolioContent = {
   },
   socials: {
     github: 'https://github.com/JeffGuo-06',
-    linkedin: 'https://www.linkedin.com/in/jeff-guo-a87054303/',
+    linkedin: 'https://www.linkedin.com/in/guo-jeff/',
     email: 'jeffguo.06@gmail.com',
   },
 };
