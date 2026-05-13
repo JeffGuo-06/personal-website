@@ -455,6 +455,34 @@
   color: #1a1a1a;
 }
 
+/* ─── Stat Line ─── */
+.statLine {
+  font-size: 0.85rem;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: rgba(0, 0, 0, 0.45);
+  margin: 0 0 1rem;
+}
+
+.statLink {
+  color: #1a1a1a;
+  font-weight: 600;
+  text-decoration: none;
+  background-image: linear-gradient(
+    to bottom,
+    var(--hl-color, #ffb6d9) 0%,
+    var(--hl-color, #ffb6d9) 100%
+  );
+  background-size: 100% 0%;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 1px;
+}
+
+.statLink:hover {
+  background-size: 100% 100%;
+}
+
 /* ─── Content Grid ─── */
 .contentGrid {
   display: grid;

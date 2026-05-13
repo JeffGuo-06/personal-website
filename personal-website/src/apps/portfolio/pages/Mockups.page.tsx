@@ -38,6 +38,17 @@ export function MockupsPage() {
   const { media: instagramMedia, loading: igLoading } = useInstagramData();
   const [contentLimit, setContentLimit] = useState(9);
 
+  // Aggregate stats
+  const totalViews = instagramMedia.reduce((sum, p) => sum + (p.views ?? 0), 0);
+  const totalLikes = instagramMedia.reduce((sum, p) => sum + (p.like_count ?? 0), 0);
+  const totalShares = instagramMedia.reduce((sum, p) => sum + (p.shares ?? 0), 0);
+
+  const formatNum = (n: number) => {
+    if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M+`;
+    if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K+`;
+    return n.toString();
+  };
+
   return (
     <div className={classes.page}>
       {/* Sidebar */}
@@ -207,6 +218,11 @@ export function MockupsPage() {
             <p className={classes.loadingText}>Loading...</p>
           ) : (
             <>
+              <p className={classes.statLine}>
+                find me at{' '}
+                <a href="https://www.instagram.com/jeffguo.md" target="_blank" rel="noopener noreferrer" className={classes.statLink} style={{ '--hl-color': '#ffb6d9' } as React.CSSProperties}>@jeffguo.md</a>
+                {' '}on instagram · {formatNum(totalViews)} views · {formatNum(totalLikes)} likes · {formatNum(totalShares)} shares
+              </p>
               <div className={classes.contentGrid}>
                 {[...instagramMedia]
                   .sort((a, b) => (b.views ?? b.like_count) - (a.views ?? a.like_count))
