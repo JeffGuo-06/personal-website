@@ -91,28 +91,27 @@ export function MockupsPage() {
           <h1 className={classes.name}>Jeff Guo</h1>
           <p className={classes.role}>SWE | Toronto</p>
           <p className={classes.bio}>
-            Student at{' '}
             <a
               href="#education"
               className={classes.bioHighlight}
               style={{ '--hl-color': '#ffd000' } as React.CSSProperties}
               onClick={(e) => { e.preventDefault(); document.getElementById('education')?.scrollIntoView({ behavior: 'smooth' }); }}
-            >UWaterloo</a>
-            . I build{' '}
+            >Math @ Waterloo</a>
+            . Shipped{' '}
             <a
               href="#projects"
               className={classes.bioHighlight}
               style={{ '--hl-color': '#a8d4ff' } as React.CSSProperties}
               onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
-            >mobile apps</a>
-            {' '}and make{' '}
+            >iOS apps</a>
+            . 4.3M views on{' '}
             <a
               href="#content"
               className={classes.bioHighlight}
               style={{ '--hl-color': '#ffb6d9' } as React.CSSProperties}
               onClick={(e) => { e.preventDefault(); document.getElementById('content')?.scrollIntoView({ behavior: 'smooth' }); }}
-            >tech/music content</a>
-            {' '}on the side.
+            >tech content</a>
+            . Looking for fall 2026 SWE roles.
           </p>
         </header>
 
