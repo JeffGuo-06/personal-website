@@ -1,0 +1,602 @@
+/* ─── Apollo — Full Page ─── */
+.page {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f5f2ed;
+  color: #1a1a1a;
+  display: flex;
+}
+
+/* ─── Sidebar ─── */
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .sidebar {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 220px;
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    z-index: 10;
+    background: #f5f2ed;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sidebar {
+    width: 260px;
+  }
+}
+
+.sidebarInner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2.5rem 1.75rem;
+  gap: 2.5rem;
+}
+
+.sidebarIdentity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.sidebarName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+}
+
+.sidebarRole {
+  font-size: 0.8rem;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.4);
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+/* ─── Sidebar Nav ─── */
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.navLink {
+  font-size: 0.85rem;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  padding: 0.4rem 0;
+  transition: color 0.15s ease;
+  font-weight: 500;
+}
+
+.navLink:hover {
+  color: #1a1a1a;
+}
+
+/* ─── Sidebar Socials ─── */
+.sidebarSocials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  margin-top: auto;
+}
+
+.socialLink {
+  font-size: 0.8rem;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: rgba(0, 0, 0, 0.35);
+  text-decoration: none;
+  padding: 0.3rem 0;
+  transition: color 0.15s ease;
+  font-weight: 500;
+}
+
+.socialLink:hover {
+  color: #1a1a1a;
+}
+
+/* ─── Back Link ─── */
+.backLink {
+  font-size: 0.8rem;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  font-weight: 500;
+}
+
+.backLink:hover {
+  color: #1a1a1a;
+}
+
+/* ─── Main Content ─── */
+.main {
+  flex: 1;
+  padding: 3rem 2rem 5rem;
+  max-width: 720px;
+}
+
+@media (min-width: 900px) {
+  .main {
+    margin-left: 220px;
+    padding: 4rem 3rem 6rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main {
+    margin-left: 260px;
+    padding: 4rem 4rem 6rem;
+  }
+}
+
+/* ─── Header ─── */
+.header {
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.name {
+  font-size: 2.75rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: #1a1a1a;
+}
+
+@media (min-width: 768px) {
+  .name {
+    font-size: 3.5rem;
+  }
+}
+
+.role {
+  font-size: 0.95rem;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.4);
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-weight: 500;
+}
+
+.bio {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.55);
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  max-width: 520px;
+}
+
+.bioHighlight {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  background-image: linear-gradient(
+    to bottom,
+    var(--hl-color, #ffd000) 0%,
+    var(--hl-color, #ffd000) 100%
+  );
+  background-size: 100% 0%;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 1px;
+  margin: 0 -1px;
+}
+
+.bioHighlight:hover {
+  background-size: 100% 100%;
+}
+
+/* ─── Sections ─── */
+.section {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 2rem;
+}
+
+.sectionTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(0, 0, 0, 0.35);
+  margin: 0 0 1.25rem;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Education & Experience Items ─── */
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.item {
+  padding: 0.5rem 0;
+}
+
+.itemHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+@media (min-width: 600px) {
+  .itemHeader {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.itemTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+/* ─── Highlight Wipe Effect ─── */
+.titleWrap {
+  display: inline;
+}
+
+.highlightTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: #1a1a1a;
+  line-height: 1.3;
+  display: inline;
+  background-image: linear-gradient(
+    to bottom,
+    var(--hl-color, #ffd000) 0%,
+    var(--hl-color, #ffd000) 100%
+  );
+  background-size: 100% 0%;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.item:hover .highlightTitle,
+.projectCard:hover .highlightTitle {
+  background-size: 100% 100%;
+}
+
+.itemSub {
+  font-size: 0.875rem;
+  margin: 0.125rem 0 0;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+.itemLink {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.itemLink:hover {
+  color: #1a1a1a;
+}
+
+.itemMeta {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.35);
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 600px) {
+  .itemMeta {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.125rem;
+    margin-top: 0;
+    text-align: right;
+  }
+}
+
+/* ─── Project Cards ─── */
+.projectGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.projectCard {
+  display: flex;
+  gap: 1.25rem;
+  padding: 0.75rem 0;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+  align-items: flex-start;
+}
+
+.projectCard:hover {
+  background: transparent;
+}
+
+.projectImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.projectBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.projectName {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+.projectTech {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(0, 0, 0, 0.35);
+  font-weight: 600;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+.projectDesc {
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0;
+  line-height: 1.5;
+  font-family: 'Georgia', serif;
+}
+
+/* ─── Instagram Profile ─── */
+.igProfile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 1.25rem;
+  transition: opacity 0.15s ease;
+}
+
+.igProfile:hover {
+  opacity: 0.8;
+}
+
+.igAvatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+
+.igInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.igHandle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.igName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: #1a1a1a;
+}
+
+.igBadge {
+  width: 14px;
+  height: 14px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.igBio {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.45);
+  margin: 0;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+.igStats {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.4);
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+.igStats strong {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* ─── Content Grid ─── */
+.contentGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  max-width: 360px;
+}
+
+.contentTile {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  display: block;
+  border-radius: 2px;
+}
+
+.contentTileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+.contentTile:hover .contentTileImage {
+  opacity: 0.85;
+}
+
+.tileViewCount {
+  position: absolute;
+  bottom: 5px;
+  right: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.viewIcon {
+  width: 12px;
+  height: 12px;
+}
+
+.loadingText {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.35);
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-style: italic;
+  margin: 0;
+}
+
+.showMoreBtn {
+  display: block;
+  margin: 1rem auto 0;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  padding: 0.45rem 1.25rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.showMoreBtn:hover {
+  border-color: rgba(0, 0, 0, 0.3);
+  color: #1a1a1a;
+}
+
+/* ─── CTA ─── */
+.cta {
+  margin-top: 2rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ctaTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+}
+
+.ctaDesc {
+  font-size: 0.95rem;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+
+.ctaButton {
+  background: #1a1a1a;
+  color: #f5f2ed;
+  border: none;
+  padding: 0.65rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: transform 0.15s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-1px);
+}
+
+.ctaButtonSecondary {
+  background: transparent;
+  color: #1a1a1a;
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
+  padding: 0.65rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: transform 0.15s ease;
+}
+
+.ctaButtonSecondary:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 0, 0, 0.3);
+}

@@ -23,13 +23,21 @@ export interface Project {
   imageSrc: string;
 }
 
-export interface UpcomingItem {
-  type: 'song' | 'project';
-  title: string;
-  subtitle?: string;
-  description: string;
-  releaseInfo: string; // e.g., "Coming Soon", "Q1 2025", etc.
-  imageSrc?: string;
+export interface EducationItem {
+  school: string;
+  program: string;
+  gpa?: string;
+  location: string;
+  dateRange: string;
+}
+
+export interface ExperienceItem {
+  role: string;
+  company: string;
+  companyLink?: string;
+  location?: string;
+  dateRange: string;
+  bullets: string[];
 }
 
 // Music Data
@@ -161,44 +169,88 @@ export const gamesProjects: Project[] = [
 export const otherProjects: Project[] = [
   {
     title: 'The Boards',
-    subtitle: 'Shared leaderboards for friend groups',
+    subtitle: 'Shared leaderboard iOS app — 100+ users on the App Store',
     tech: ['React Native', 'Expo', 'Supabase'],
-    description: 'A shared leaderboard IOS app designed for friend groups. Make leaderboards out of anything, basketball, pickleball, whatever he ball, shibal.',
+    description: 'Real-time leaderboards and push notifications for friend group competitions.',
     codeLink: 'https://github.com/JeffGuo-06/the-boards',
     demoLink: 'https://theboards.app',
     imageType: 'iphone',
     imageSrc: '/assets/boards-demo.png',
   },
   {
+    title: 'Insu',
+    subtitle: 'Automated insulin management iOS app',
+    tech: ['Swift', 'CoreBluetooth', 'RileyLink'],
+    description: 'Led a team of 4 to build an iOS app integrating with glucose monitors and insulin pumps over Bluetooth.',
+    codeLink: 'https://github.com/liyuxiao2/INSU',
+    demoLink: 'https://devpost.com/software/insu',
+    imageType: 'standard',
+    imageSrc: '/assets/insu-demo.jpg',
+  },
+  {
+    title: 'IMitate',
+    subtitle: 'Medical patient simulator — 200+ unique patients',
+    tech: ['Next.js', 'Supabase', 'Gemini API'],
+    description: 'Free patient simulation and diagnostic assessment platform for medical students.',
+    codeLink: 'https://github.com/liyuxiao2/IMitate',
+    demoLink: 'https://imitate-medical-sim.vercel.app/',
+    imageType: 'standard',
+    imageSrc: '/assets/imitate-demo.jpg',
+  },
+  {
     title: 'SHOUT',
-    subtitle: 'AI voice removal for concert videos',
-    tech: ['Swift', 'AudioShake'],
-    description:
-      'We all wanna scream at concerts, but how tf am I meant to post a nonchalant story if I\'m screaming. \n  I\'m building an app to remove your own voice from concert videos, join the waitlist if you want me to hurry.',
+    subtitle: 'AI voice removal for concert videos — 50+ waitlist signups',
+    tech: ['Swift', 'AudioShake', 'Vercel'],
+    description: 'iOS app that removes your voice from concert videos using AI stem separation.',
     demoLink: 'https://guojeff.com/shout',
     imageType: 'iphone',
     imageSrc: '/assets/shout-demo.png',
   },
-  // Add more projects here...
 ];
 
-// Upcoming Content Data
-export const upcomingContent: UpcomingItem[] = [
+// Education Data
+export const educationItems: EducationItem[] = [
   {
-    type: 'song',
-    title: 'JSON',
-    subtitle: 'Coming Soon',
-    description: 'JSON, JSON, JSON, JSON',
-    releaseInfo: 'Lyrics basically done',
+    school: 'University of Waterloo',
+    program: 'Computational Mathematics',
+    gpa: '3.93',
+    location: 'Waterloo, ON',
+    dateRange: 'Sep 2024 - Jan 2029',
+  },
+];
+
+// Experience Data
+export const experienceItems: ExperienceItem[] = [
+  {
+    role: 'Software Engineering Intern',
+    company: 'Inductive Solution',
+    location: 'Boston, MA',
+    dateRange: 'Jan 2026 - Apr 2026',
+    bullets: [
+      'Shipped Stripe billing across Node/Prisma backend and web/iOS/Android UI: webhook handler with TOCTOU race fix, credit-based pricing, and Flyway migration.',
+      'Rebuilt mobile push notifications: migrated iOS from NSE rich notifications to Expo Push Service, hardened the Sygnal gateway with timeouts and 5xx retry.',
+      'Eliminated a shared Matrix admin token shipped in client bundles by architecting a server-side login proxy with per-user credentials across mobile, web, Node/Prisma backend.',
+    ],
   },
   {
-    type: 'song',
-    title: 'KEΣN',
-    subtitle: 'In Development',
-    description: 'keen·er /ˈkēnər/ : noun, a person who is extremely, eager, zealous and enthusiastic. "keeners who spent most of high school buried in homework"',
-    releaseInfo: 'One verse and a chorus',
+    role: 'Tech Content Creator',
+    company: '@jeffguo.md',
+    companyLink: 'https://www.instagram.com/jeffguo.md',
+    dateRange: 'Oct 2025 - Present',
+    bullets: [
+      'Scaled tech song parodies to 4.6M+ views and 200k+ shares on Instagram.',
+      'Grew to 2,000+ followers in 30 days by systematically testing hooks, formats, and posting strategies.',
+    ],
   },
-  // Add more upcoming items here...
+  {
+    role: 'Digital Marketing & SEO Intern',
+    company: 'Opusense (YC X25)',
+    location: 'Toronto, ON',
+    dateRange: 'May 2025 - Aug 2025',
+    bullets: [
+      'Built SEO/GEO content strategy improving click-through rate by 50%, and QA\'d mobile builds with the dev team.',
+    ],
+  },
 ];
 
 // Portfolio Projects Data
@@ -219,7 +271,7 @@ export const portfolioProjects: Project[] = [
     codeLink: 'https://github.com/liyuxiao2/IMitate',
     demoLink: 'https://imitate-medical-sim.vercel.app/',
     imageType: 'standard',
-    imageSrc: '/assets/imitate-demo.png',
+    imageSrc: '/assets/imitate-demo.jpg',
   },
   {
     title: 'SHOUT',
@@ -231,13 +283,22 @@ export const portfolioProjects: Project[] = [
   },
 ];
 
+// Skills Data
+export const skillsData = [
+  { category: 'Languages', items: ['TypeScript', 'JavaScript', 'Python', 'Swift', 'SQL', 'Bash'] },
+  { category: 'Frontend & Mobile', items: ['React', 'Next.js', 'React Native', 'Expo', 'SwiftUI', 'Tailwind CSS'] },
+  { category: 'Backend & Data', items: ['Node.js', 'Express', 'FastAPI', 'Prisma', 'PostgreSQL', 'Supabase', 'Firebase'] },
+  { category: 'Cloud & Tools', items: ['Docker', 'AWS', 'Vercel', 'Git', 'CI/CD', 'Stripe', 'OpenAI'] },
+];
+
 // Page Content
 export const pageContent = {
   intro: {
     name: 'JEFFGUO.md',
-    role: 'Full Slack Developer',
+    role: 'CS @ Waterloo',
     location: 'Toronto, ON',
-    description: `Let's make coding cool again. (it never was)`
+    description: `Let's make coding cool again. (it never was)`,
+    bio: 'CS student at Waterloo. I build mobile apps, ship to production, and make tech content on the side.',
   },
   about: {
     image: '/assets/jeff-about.jpg',
@@ -252,22 +313,30 @@ Thank you all for letting me do that.`,
     isFollowing: false,
   },
   sections: {
+    experience: {
+      title: 'Experience',
+      subtitle: 'Where I\'ve been building.',
+    },
     games: {
       title: 'Games',
       subtitle: "This is fun stuff I've built for friends, you're my friend now.",
+    },
+    content: {
+      title: 'Content',
+      subtitle: 'Creative stuff.',
     },
     music: {
       title: 'Music',
       subtitle: 'A developer that also makes music?\n Are we deadass.',
     },
     other: {
-      title: 'You might also like',
+      title: 'Projects',
       subtitle: 'More stuff I\'ve been working on.',
     },
   },
   cta: {
-    title: 'WE ARE ALL GMI',
-    description: 'Got an idea? Wanna collab? Hit me up.',
+    title: "Let's work together",
+    description: 'Got an idea or an opportunity? I\'d love to hear about it.',
   },
   socials: {
     instagram: 'https://www.instagram.com/jeffguo.md',

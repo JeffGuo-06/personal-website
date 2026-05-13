@@ -5,11 +5,16 @@ import { FunPage } from './apps/portfolio/pages/Fun.page';
 import { MusicPlayerPage } from './apps/portfolio/pages/MusicPlayer.page';
 import { ArtistPage } from './apps/portfolio/pages/Artist.page';
 import { TestBrowserDeeplinkPage } from './apps/portfolio/pages/TestBrowserDeeplink.page';
+import { MockupsPage } from './apps/portfolio/pages/Mockups.page';
 import { AuthProvider } from './apps/portfolio/contexts/AuthContext';
 
 const router = createBrowserRouter([
   {
     path: '/',
+    element: <MockupsPage />,
+  },
+  {
+    path: '/artist',
     element: (
       <AuthProvider>
         <ArtistPage />
