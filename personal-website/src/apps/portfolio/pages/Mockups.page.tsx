@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { pageContent, educationItems, experienceItems, otherProjects, gamesProjects } from '../data/content';
 import { useInstagramData } from '../hooks/useInstagramData';
 import classes from './Mockups.module.css';
@@ -72,7 +71,6 @@ export function MockupsPage() {
             <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={classes.socialLink}>Resume</a>
           </div>
 
-          <Link to="/artist" className={classes.backLink}>back</Link>
         </div>
       </aside>
 
