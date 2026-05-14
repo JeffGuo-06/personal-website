@@ -222,6 +222,11 @@ export function MockupsPage() {
                 <a href="https://www.instagram.com/jeffguo.md" target="_blank" rel="noopener noreferrer" className={classes.statLink} style={{ '--hl-color': '#ffb6d9' } as React.CSSProperties}>@jeffguo.md</a>
                 {' '}on instagram · {formatNum(totalViews)} views · {formatNum(totalLikes)} likes · {formatNum(totalShares)} shares
               </p>
+              <p className={classes.statLine}>
+                got invited to perform on stage in front of 800+ people on{' '}
+                <a href="https://www.instagram.com/techroastshow/" target="_blank" rel="noopener noreferrer" className={classes.statLink} style={{ '--hl-color': '#ffb0a0' } as React.CSSProperties}>@techroastshow</a>
+                {' '}in toronto
+              </p>
               <div className={classes.contentGrid}>
                 {[...instagramMedia]
                   .sort((a, b) => (b.views ?? b.like_count) - (a.views ?? a.like_count))
