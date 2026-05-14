@@ -340,7 +340,7 @@ Thank you all for letting me do that.`,
   },
   socials: {
     instagram: 'https://www.instagram.com/jeffguo.md',
-    github: 'https://github.com/JEFFGUOmd',
+    github: 'https://github.com/JeffGuo-06',
     linkedin: 'https://www.linkedin.com/in/guo-jeff',
     email: 'jeffguo.06@gmail.com',
   },
